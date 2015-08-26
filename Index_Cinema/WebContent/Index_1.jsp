@@ -1,4 +1,12 @@
+<%-- 
+    Document   : index
+    Created on : Aug 25, 2015, 11:43:52 PM
+    Author     : chenwesley
+    0826
+--%>
+
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="edu.pccu.Movie.*,java.util.*"%>
 <html>
         <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -14,7 +22,9 @@
         <link href="css/lightbox.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
         <script type="text/javascript" src="../js/jquery-ui-1.11.2.min.js"></script>
-        <% %>
+        <link href="CalendarControl.css" rel="stylesheet" type="text/css">
+<script src="CalendarControl.js" language="javascript"></script>
+     
         
         
         <script type="text/javascript">
@@ -45,18 +55,13 @@
                 
                 return date_getString(new Date());
             }
-      
-    
-    
-    
-    
     
         // 新增 選項對於所有的表單        
             function select_setOptions(objId, optionItems, defVal, firstVal, firstText) {
-                var objId ="<%=javaParam%>"; // 要更新的項目
-                var optionItems = "<%=javaParam%>";
-                var defVal = "<%=javaParam%>";//default值
-                var defVal = "<%=javaParam%>";
+                var objId =""; // 要更新的項目
+                var optionItems = "";
+                var defVal = " ";//default值
+                var defVal = " ";
                 var obj = $('#' + objId);
                 obj.find('option').remove().end();
                 
@@ -532,9 +537,17 @@
 
                             });
         </script>
+        
+        
+        
+        
+        
     </head>
 
     <body>
+         <%MovieDAO dao = new MovieDAODBImpl();
+                ArrayList<Movie> list = dao.getAllMovies();
+                %>
         <div id="fadeMsg"></div>
         <!--Header-->
         <div class="Header">
@@ -619,22 +632,27 @@
                         <div class="mov-select" style="display:block" id="search_mov_location">
                             <!--地區-->
                             <!--<select name="location" id="location" class="search-s1 icon-mov">-->
+                            
+                            
+                            <Form action="Select_seat.jsp" method="POST">
+                            
                             <select name="location" id="location" class="search-s1 icon-mov">
                                 <option value="">地區</option>
                                 <option value="1">台北</option>
                                 <option value="2">桃園</option>
                                 <option value="3">新竹</option>
                                 <option value="4">台中</option>
-                                <option value="5">台南</option>
-                                <option value="6">高雄</option>
-                                <option value="7">屏東</option>
-                                <option value="8">宜蘭</option>
-                                <option value="9">苗栗</option>
+
                             </select>
                             <!--選擇電影-->
                             <!--<select name="mgId" id="mgId" class="search-s1 icon-mov">-->
                             <select name="mgId" id="mgId" class="search-s1 icon-mov">
                                 <option>選擇電影</option>
+                                <%for(int i=1;i<list.size();i++){%>
+    				<option value='<%out.print(list.get(i).get_m_name_c());%>'><%out.print(list.get(i).get_m_name_c());%></option>
+                                <%}%>
+   								  
+                     		<!--	
                                 <option value="1">台北</option>
                                 <option value="2">桃園</option>
                                 <option value="3">新竹</option>
@@ -644,6 +662,7 @@
                                 <option value="7">屏東</option>
                                 <option value="8">宜蘭</option>
                                 <option value="9">苗栗</option>
+							--> 
 
                             </select>
                             <!--幾人-->
@@ -658,10 +677,13 @@
                                 <option value="6">6</option>
                             </select>
                             <!--今天-->
-                            <!--<select name="sessionDate" id="sessionDate" class="search-s2 icon-mov">-->
+                            
+                            <!--<select name="sessionDate" id="sessionDate" class="search-s2 icon-mov">
                             <select name="sessionDate" id="sessionDate" class="search-s2 icon-mov">
                                 <option value="">今天</option>
-                            </select>
+                            </select>-->
+                            
+                            <input name="todays_date" id="todays_date" class="search-s2 icon-mov" value="日期" onfocus="showCalendarControl(this);" type="text">
                             <!--時段(起)-->
                             <!--<select name="sessionTimeStart" id="sessionTimeStart" class="search-s2 icon-mov">-->
                             <select name="sessionTimeStart" id="sessionTimeStart" class="search-s2 icon-mov">
@@ -769,9 +791,12 @@
                                 <option value="06:30">06:30</option>
                             </select>
                              <!--送出-->   
-                            <div class="btm-w">                          
-                                <a href="javascript:searchMovieByLocation()" class="search-btm color-mov">送出</a>
+                            <div class="btm-w"> 
+                            <a href="javascript:searchMovieByLocation()" class="search-btm color-mov" OnClick="searchMovieByLocation();">送出</a>
+                               <input type="submit" value="Submit" class="search-btm color-mov" OnClick="searchMovieByLocation();">                          
+                                
                             </div>
+                              </Form>
                         </div>
 
                         <!--電影：影城訂票-->
