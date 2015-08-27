@@ -12,6 +12,8 @@ public interface MovieDAO {
     public int add1(Movie movie);
     //修改
     public void update_Movie(Movie movie);
+    //修改(華郁)
+    public int update_Movie2(Movie movie);
     //刪除
     public void remove_Movie(Movie movie);
     //查詢(電影中文名稱) (前後台)
