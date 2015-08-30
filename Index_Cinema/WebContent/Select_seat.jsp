@@ -44,8 +44,8 @@
                 </div>
             </div>
             <div class="section">
-                <h2 id="toc">Dear customer,</h2>
-                <h3 id="1">pick up seats</h3>
+               <!--  <h2 id="toc">Dear customer,</h2>
+                <h3 id="1">pick up seats</h3>--> 
             </div>
             <div class="results"></div>
 
@@ -99,7 +99,7 @@
                
                
                
-                <form id="selected-opt" name="selected-opt" action="" method="post" onSubmit="return check_data();">
+                <form id="selected-opt" name="selected-opt" action="Order_comfirm.jsp" method="post" onSubmit="return check_data();">
 				<p>Email:<input id="t1" type="text" name="student_name" onblur="getData()" />
 				<img id="img1" width="50px" height="50px" />
 				</p>
@@ -112,7 +112,7 @@
 				<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeStart")%>" id="<%=request.getParameter("sessionTimeStart")%>"> 
 				<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeEnd")%>" id="<%=request.getParameter("sessionTimeEnd")%>"> 
 				
-				<p><input class="checkout-button" type="submit" value="ADD!" />
+				<p><input class="checkout-button" type="submit" value="下訂單" />
 				
 				</form>
                 </div>
@@ -124,9 +124,6 @@
 				
 				</form>
             </div>
-
-
-
 
             <script type="text/javascript">
 
