@@ -6,11 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <%
+String s1[] = request.getParameterValues("seat");
+out.println(s1.length);
 
-
-response.sendRedirect("StudentList.jsp"); 
-
-
+for (String s : s1)
+{
+	String tmp = new String(s.getBytes("ISO-8859-1"), "UTF-8");
+	out.println(tmp);
+	
+}
+//response.sendRedirect("StudentList.jsp"); 
 %>
 
 </head>

@@ -240,11 +240,7 @@
                     $("#sessionTimeEnd option[value='" + selectedStartTime + "']").remove();
             }
             
-            
-            function Cee(){
-            	alert("c");
-            	
-            }
+
             
             
         // 選電影 判斷 空值 跳出警示
@@ -331,12 +327,15 @@
                    message = message + '時間不能為空白\n';
                    flag = false;
                }
-                else {movie_select.submit();}
+           
                if(!flag) 
                {
                   alert(message);
                }
- 
+               if(flag) 
+               {
+            	   movie_select.submit();
+               }
                return flag;
             }
 
@@ -697,6 +696,8 @@
                         <div class="mov-select" style="display:block" id="search_mov_location">
                             <!--地區-->
                             <!--<select name="location" id="location" class="search-s1 icon-mov">-->
+                            
+                            
                             
                             
                             <Form name="movie_select" id="movie_select" action="Select_seat.jsp" method="POST">

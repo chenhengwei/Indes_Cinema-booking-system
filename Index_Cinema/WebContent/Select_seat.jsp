@@ -100,19 +100,21 @@
                
                
                 <form id="selected-opt" name="selected-opt" action="Order_comfirm.jsp" method="post" onSubmit="return check_data();">
-				<p>Email:<input id="t1" type="text" name="student_name" onblur="getData()" />
-				<img id="img1" width="50px" height="50px" />
+				
+				<p>
+						  Email:<input id="t1" type="text" name="seat" onblur="getData()" /> <img id="img1" width="50px" height="50px" />
 				</p>
-				<input type="hidden" id="dup" value="1" />
-				<p>Mobile Phone:<input id="t2" type="text" name="student_tel" /></p>
 				
-				<input type="hidden" name="seat" value="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>" id="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>"> 
-				<input type="hidden" name="seat" value="<%=request.getParameter("todays_date")%>" id="<%=request.getParameter("todays_date")%>"> 
-				<input type="hidden" name="seat" value="<%=request.getParameter("ticketQuantity")%>" id="<%=request.getParameter("ticketQuantity")%>"> 
-				<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeStart")%>" id="<%=request.getParameter("sessionTimeStart")%>"> 
-				<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeEnd")%>" id="<%=request.getParameter("sessionTimeEnd")%>"> 
+							    <input type="hidden" id="dup" value="1" />
+			    <p>Mobile Phone:<input id="t2" type="text" name="seat" /></p>
 				
-				<p><input class="checkout-button" type="submit" value="下訂單" />
+								<input type="hidden" name="seat" value="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>" id="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>"> 
+								<input type="hidden" name="seat" value="<%=request.getParameter("todays_date")%>" id="<%=request.getParameter("todays_date")%>"> 
+								<input type="hidden" name="seat" value="<%=request.getParameter("ticketQuantity")%>" id="<%=request.getParameter("ticketQuantity")%>"> 
+								<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeStart")%>" id="<%=request.getParameter("sessionTimeStart")%>"> 
+								<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeEnd")%>" id="<%=request.getParameter("sessionTimeEnd")%>"> 
+				
+				<p><input class="checkout-button" type="submit" value="下訂單" OnClick="check_data();"/>
 				
 				</form>
                 </div>
@@ -126,7 +128,37 @@
             </div>
 
             <script type="text/javascript">
-
+		            function check_data()
+		            {
+		               var flag = true;
+		               var message = '';
+		
+		               // ---------- Check ----------
+		               var t1 = document.getElementById('t1');
+		               if(t1.value=='')
+		               {
+		                  message = message + '姓名不能為空白\n';
+		                  flag = false;
+		               }
+		               // ---------- Check ----------
+		               var t2 = document.getElementById('t2');
+		               if(t2.value=='')
+		               {
+		                  message = message + '電話不能為空白\n';
+		                  flag = false;
+		               }
+		               
+		               if(!flag) 
+		               {
+		                  alert(message);
+		               }
+		               
+		               if(flag) 
+		               {
+		            	   Order_comfirm.submit();
+		               }
+		               return flag;
+		            }
                 var price = 10; //price
 
                 $(document).ready(function () {
