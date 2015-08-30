@@ -145,7 +145,7 @@ public class MovieDAODBImpl implements MovieDAO {
         }
 
     }
-    
+    //華郁    
     @Override
 	public int update_Movie2(Movie movie) {
     	int count = 0;
@@ -201,7 +201,29 @@ public class MovieDAODBImpl implements MovieDAO {
             Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    //華郁
+    @Override
+	public int remove_Movie2(Movie movie) {
+    	int count = 0;
+    	try {
+            Class.forName(DRIVER_NAME);  // 把符合的API 全部都進來 但是會有 expection , try catach 去擷取
+            Connection conn = DriverManager.getConnection(CONN_STRING);
+            String query_find = "Delete from movie_Info where movie_no = ?";
+            PreparedStatement ppstemt = conn.prepareStatement(query_find);
+            //ppstemt.setInt(1, student.student_Id);
+            ppstemt.setInt(1, movie.get_m_no());
+            count = ppstemt.executeUpdate();
+            ppstemt.cancel();
+            conn.close();
+            return count;
 
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+		return -1;
+	}
     @Override
     public Movie findById_name_c(String movie_name_chinese) {
         try {
@@ -356,5 +378,6 @@ public class MovieDAODBImpl implements MovieDAO {
     public ArrayList<Customer> getAllCustomers() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+	
 	
 }

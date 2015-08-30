@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="jquery.seat-charts.css">
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="jquery.seat-charts.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/Select_Seats.css">
     </head>
     <body>
         <div id="page">
@@ -49,136 +50,32 @@
             <div class="results"></div>
 
 
-
-            <style type="text/css">
-                .demo{
-                    width:700px; 
-                    margin:40px 
-                        auto 0 auto; 
-                    min-height:450px;
-                }
-                @media screen and (max-width: 360px) {.demo {width:340px}}
-                .front{
-                    width: 300px;
-                    margin: 5px 32px 45px 32px;
-                    background-color: #f0f0f0;
-                    color: #666;
-                    text-align: 
-                        center;
-                    padding: 3px;
-                    border-radius: 5px;
-                }
-                .booking-details {
-                    float: right;
-                    position: relative;
-                    width:200px;
-                    height: 450px; 
-                }
-                .booking-details h3 {
-                    margin: 5px 5px 0 0;
-                    font-size: 16px;
-                }
-                .booking-details p{
-                    line-height:26px; 
-                    font-size:16px; 
-                    color:#999
-                }
-                .booking-details p span{color:#666}
-                div.seatCharts-cell{
-                    color: #182C4E;
-                    height: 25px;
-                    width: 25px;
-                    line-height: 25px;
-                    margin: 3px;
-                    float: left;
-                    text-align: 
-                        center;outline: none;
-                    font-size: 13px;
-                }
-                div.seatCharts-seat {
-                    color: #fff;
-                    cursor: pointer;
-                    -webkit-border-radius: 5px;
-                    -moz-border-radius: 5px;
-                    border-radius: 5px;
-                }
-                div.seatCharts-row {
-                    height: 35px;
-                }
-                div.seatCharts-seat.available {
-                    background-color: #B9DEA0;
-                }
-                div.seatCharts-seat.focused {
-                    background-color: #76B474;
-                    border: none;
-                }
-                div.seatCharts-seat.selected {
-                    background-color: #E6CAC4;
-                }
-                div.seatCharts-seat.unavailable {
-                    background-color: #472B34;
-                    cursor: not-allowed;
-                }
-                div.seatCharts-container {
-                    border-right: 1px dotted #adadad;
-                    width: 400px;
-                    padding: 20px;
-                    float: left;
-                }
-                div.seatCharts-legend {
-                    padding-left: 0px;
-                    position: absolute;
-                    bottom: 16px;
-                }
-                ul.seatCharts-legendList {
-                    padding-left: 0px;
-                }
-                .seatCharts-legendItem{
-                    float:left; width:90px;
-                    margin-top: 10px;
-                    line-height: 2;
-                }
-                span.seatCharts-legendDescription {
-                    margin-left: 5px;
-                    line-height: 30px;
-                }
-                .checkout-button{
-                    display: block;
-                    width:80px; 
-                    height:24px; 
-                    line-height:20px;
-                    margin: 10px auto;
-                    border:1px solid #999;
-                    font-size: 14px; 
-                    cursor:pointer
-                }
-                #selected-seats {
-                    max-height: 150px;
-                    overflow-y: auto;
-                    overflow-x: none;
-                    width: 200px;
-                }
-                #selected-seats li{
-                    float:left; 
-                    width:72px; 
-                    height:26px; 
-                    line-height:26px; 
-                    border:1px solid #d3d3d3; 
-                    background:#f7f7f7; 
-                    margin:6px; font-size:14px; 
-                    font-weight:bold; 
-                    text-align:center
-                }
-            </style>
-
             <div class="demo">
 
                 <div id="seat-map" class="seatCharts-container" tabindex="0" aria-activedescendant="1_0">
 
                     <div class="front">SCREEN</div>
                     <!-- 會自己新增出列表 -->    
-                </div>
+               		 </div>
+               		 
+					<div id="legend" class="seatCharts-legend">
+                        <ul class="seatCharts-legendList">
+                            <li class="seatCharts-legendItem">
+                                <!--
+                                <div class="seatCharts-seat seatCharts-cell available">
+                                </div>
+                                <span class="seatCharts-legendDescription">Option</span>
+                                -->
+                            </li>
+                            <li class="seatCharts-legendItem">
+                                <!-- 
+                                <div class="seatCharts-seat seatCharts-cell unavailable"></div>
+                                 <span class="seatCharts-legendDescription">Sold</span>
+                                -->
+                            </li>
 
+                        </ul>
+                    </div>
                 <div class="booking-details">
 
                     <p>Movie: <span> <%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%></span></p>
@@ -188,43 +85,48 @@
                     <p>Seat: </p>
                     <ul id="selected-seats">
                         <!-- 會自己新增 選擇位子 -->    
-
-
-
                     </ul>
-
                     <p>Tickets: <span id="counter">0</span></p>
                     <p>Total: <b>$<span id="total">0</span></b></p>
                     <br>
                     <button class="checkout-button">BUY</button>
 
-                    <div id="legend" class="seatCharts-legend">
-                        <ul class="seatCharts-legendList">
-
-                            <li class="seatCharts-legendItem">
-                                <!--
-                                <div class="seatCharts-seat seatCharts-cell available">
-    
-                                </div>
-                                <span class="seatCharts-legendDescription">Option</span>
-                                -->
-                            </li>
-
-                            <li class="seatCharts-legendItem">
-
-                                <!-- 
-                                <div class="seatCharts-seat seatCharts-cell unavailable"></div>
-                                 <span class="seatCharts-legendDescription">Sold</span>
-                                -->
-                            </li>
-
-                        </ul>
-                    </div>
-
-
                 </div>
-                <div style="clear:both"></div>
+               <div id="Customer_info">
+               
+               
+               
+               
+               
+               
+                <form id="selected-opt" name="selected-opt" action="" method="post" onSubmit="return check_data();">
+				<p>Email:<input id="t1" type="text" name="student_name" onblur="getData()" />
+				<img id="img1" width="50px" height="50px" />
+				</p>
+				<input type="hidden" id="dup" value="1" />
+				<p>Mobile Phone:<input id="t2" type="text" name="student_tel" /></p>
+				
+				<input type="hidden" name="seat" value="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>" id="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>"> 
+				<input type="hidden" name="seat" value="<%=request.getParameter("todays_date")%>" id="<%=request.getParameter("todays_date")%>"> 
+				<input type="hidden" name="seat" value="<%=request.getParameter("ticketQuantity")%>" id="<%=request.getParameter("ticketQuantity")%>"> 
+				<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeStart")%>" id="<%=request.getParameter("sessionTimeStart")%>"> 
+				<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeEnd")%>" id="<%=request.getParameter("sessionTimeEnd")%>"> 
+				
+				<p><input class="checkout-button" type="submit" value="ADD!" />
+				
+				</form>
+                </div>
+                <div style="clear:both">
+                
+                </div>
+				<form >
+				
+				
+				</form>
             </div>
+
+
+
 
             <script type="text/javascript">
 
@@ -232,8 +134,9 @@
 
                 $(document).ready(function () {
                     var $cart = $('#selected-seats'), //Sitting Area
-                            $counter = $('#counter'), //Votes
-                            $total = $('#total'); //Total money
+                        $counter = $('#counter'), //Votes
+                        $total = $('#total'), //Total money
+                        $cart_opt = $('#selected-opt');
 
                     var sc = $('#seat-map').seatCharts({
                         map: [//Seating chart
@@ -267,19 +170,41 @@
                                         .attr('id', 'cart-item-' + this.settings.id)
                                         .data('seatId', this.settings.id)
                                         .appendTo($cart);
-
+                                //alert('id');
+                                //alert('cart-item-');
+								//alert(this.settings.row + 1);
+								//alert(this.settings.label);
+								
                                 $counter.text(sc.find('selected').length + 1);
+                                
+                                //alert(sc.find('selected').length + 1);
+                                
                                 $total.text(recalculateTotal(sc) + price);
-
+                                
+                                //alert(this.settings.id);
+                                //<input type="hidden" name="seat" value="1_10">
+                                $('<input/>')
+                                .attr('type', 'hidden')
+                                .attr('name', 'seat')
+                                .attr('value', this.settings.id)
+                                .attr('id', 'opt'+this.settings.id)
+                                .appendTo($cart_opt);
+                                
                                 return 'selected';
                             } else if (this.status() == 'selected') { //Checked
                                 //Update Number
                                 $counter.text(sc.find('selected').length - 1);
+                            
+                                //alert(sc.find('selected').length - 1);
                                 //update totalnum
                                 $total.text(recalculateTotal(sc) - price);
-
+                                
+                                //alert(recalculateTotal(sc) - price);
                                 //Delete reservation
                                 $('#cart-item-' + this.settings.id).remove();
+                                $('#opt'+this.settings.id).remove();
+                               
+                                
                                 //optional
                                 return 'available';
                             } else if (this.status() == 'unavailable') { //sold

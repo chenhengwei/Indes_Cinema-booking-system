@@ -250,5 +250,10 @@ public class CustomerDAODBImpl implements MovieDAO {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	@Override
+	public int remove_Movie2(Movie movie) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }

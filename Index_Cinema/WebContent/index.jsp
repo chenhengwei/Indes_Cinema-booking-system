@@ -2,7 +2,6 @@
     Document   : index
     Created on : Aug 25, 2015, 11:43:52 PM
     Author     : chenwesley
-    0826
 --%>
 
 <!DOCTYPE html>
@@ -23,7 +22,7 @@
         <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
         <script type="text/javascript" src="../js/jquery-ui-1.11.2.min.js"></script>
         <link href="CalendarControl.css" rel="stylesheet" type="text/css">
-<script src="CalendarControl.js" language="javascript"></script>
+		<script src="CalendarControl.js" language="javascript"></script>
      
         
         
@@ -240,31 +239,51 @@
                 if (selectedMin == '00')
                     $("#sessionTimeEnd option[value='" + selectedStartTime + "']").remove();
             }
+            
+            
+            function Cee(){
+            	alert("c");
+            	
+            }
+            
+            
         // 選電影 判斷 空值 跳出警示
             function searchMovieByLocation() {
-                if ($('#location').val() == '') {
-                    alert('請選擇地區');
-                    return;
-                }
-                if ($('#mgId').val() == '') {
+        	
+        	
+             alert("go");
+             alert($("#location").val());
+//              var location = document.getElementById('location');
+//              if(location.value == '')
+//              {
+//                 message = message + '姓名不能為空白\n';
+//                 alert(message);
+//                 flag = false; 
+//              }
+                 if ($('#location').val() == '') {
+                     alert('請選擇地區');
+                     return;
+               }
+                
+                 if ($('#mgId').val() == '') {
                     alert('請選擇電影');
                     return;
                 }
-                if ($('#sessionDate').val() == '') {
+                if ($movie_select('#sessionDate').val() == '') {
                     alert('請選擇日期');
                     return;
                 }
-                if ($('#ticketQuantity').val() == '') {
+                if ($movie_select('#ticketQuantity').val() == '') {
                     alert('請選擇人數');
                     return;
                 }
-                if ($('#sessionTimeStart').val() === '') {
+                if ($movie_select('#sessionTimeStart').val() == '') {
                     alert('請選擇時間');
                     return;
-                }
                 
+        		}
                 //Url產生機
-                /*
+                
                 var url = "http://www.ezding.com.tw/wfs.do?action=find.seats.by.location.moviegroup.sessionTime";
                 url += "&location=" + $('#location').val();
                 url += "&mgId=" + $('#mgId').val();
@@ -275,7 +294,51 @@
 
                 location.href = url;
             }
-                */
+            function check_data()
+            {
+               var flag = true;
+               var message = '';
+
+               // ---------- Check ----------
+               var location = document.getElementById('location');
+               if(location.value=='')
+               {
+                  message = message + '地區不能為空白\n';
+                  flag = false;
+               }
+                // ---------- Check ----------
+                var mgId = document.getElementById('mgId');
+                if(mgId.value=='')
+                {
+                   message = message + '電影不能為空白\n';
+                   flag = false;
+               }
+                var ticketQuantity = document.getElementById('ticketQuantity');
+                if(ticketQuantity.value=='')
+                {
+                   message = message + '人數不能為空白\n';
+                   flag = false;
+               } 
+                var sessionTimeStart = document.getElementById('sessionTimeStart');
+                if(sessionTimeStart.value  =='')
+                {
+                   message = message + '時間不能為空白\n';
+                   flag = false;
+               }
+                var sessionTimeEnd = document.getElementById('sessionTimeEnd');
+                if(sessionTimeEnd.value  =='')
+                {
+                   message = message + '時間不能為空白\n';
+                   flag = false;
+               }
+                else {movie_select.submit();}
+               if(!flag) 
+               {
+                  alert(message);
+               }
+ 
+               return flag;
+            }
 
 
             function findShowingMoviesByCinemaId() {
@@ -307,7 +370,9 @@
             }
         //判斷如果選項為 空值 跳出 提示訊息
             function searchMovieByCinema() {
-                if ($('#cinemaId').val() == "") {
+        		alert("gp");
+                if ($('#cinemaId').val() == "") 
+                {
                     $('#cinemaId').focus();
                     alert("請選擇戲院");
                     return;
@@ -634,7 +699,7 @@
                             <!--<select name="location" id="location" class="search-s1 icon-mov">-->
                             
                             
-                            <Form action="Select_seat.jsp" method="POST">
+                            <Form name="movie_select" id="movie_select" action="Select_seat.jsp" method="POST">
                             
                             <select name="location" id="location" class="search-s1 icon-mov">
                                 <option value="">地區</option>
@@ -647,7 +712,7 @@
                             <!--選擇電影-->
                             <!--<select name="mgId" id="mgId" class="search-s1 icon-mov">-->
                             <select name="mgId" id="mgId" class="search-s1 icon-mov">
-                                <option>選擇電影</option>
+                                <option value="">選擇電影</option>
                                 <%for(int i=1;i<list.size();i++){%>
     				<option value='<%out.print(list.get(i).get_m_name_c());%>'><%out.print(list.get(i).get_m_name_c());%></option>
                                 <%}%>
@@ -685,6 +750,7 @@
                             
                             <input name="todays_date" id="todays_date" class="search-s2 icon-mov" value="日期" onfocus="showCalendarControl(this);" type="text">
                             <!--時段(起)-->
+                            
                             <!--<select name="sessionTimeStart" id="sessionTimeStart" class="search-s2 icon-mov">-->
                             <select name="sessionTimeStart" id="sessionTimeStart" class="search-s2 icon-mov">
                                 <option value="">時段(起)</option>
@@ -792,8 +858,8 @@
                             </select>
                              <!--送出-->   
                             <div class="btm-w"> 
-                            <a href="javascript:searchMovieByLocation()" class="search-btm color-mov" OnClick="searchMovieByLocation();">送出</a>
-                               <input type="submit" value="Submit" class="search-btm color-mov" OnClick="searchMovieByLocation();">                          
+                            <a href="javascript:searchMovieByCinema()" class="search-btm color-mov" OnClick="check_data();">送出</a>
+                               <input type="button" value="Submit" class="search-btm color-mov" OnClick="check_data();">                          
                                 
                             </div>
                               </Form>
