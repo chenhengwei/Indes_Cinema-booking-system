@@ -156,6 +156,7 @@ function CalendarControl() {
 
 
       var dateString = year+"-"+month+"-"+day;
+      
       dateField.value = dateString;
       hide();
     }
@@ -266,9 +267,10 @@ function CalendarControl() {
         var dateString = new String(dateField.value);
         var dateParts = dateString.split("-");
         
-        selectedMonth = parseInt(dateParts[0],10);
-        selectedDay = parseInt(dateParts[1],10);
-        selectedYear = parseInt(dateParts[2],10);
+        selectedYear = parseInt(dateParts[0],10);
+        selectedMonth = parseInt(dateParts[1],10);
+        selectedDay = parseInt(dateParts[2],10);
+       
       } catch(e) {}
     }
 

@@ -26,8 +26,9 @@ for (String s : s1)
 data1= "\""+s1[0]+"\"";
 data2="\""+s1[1]+"\"";
 out.print(data1);
+out.print("人"+Integer.valueOf(s1[4]));
 
- Customer c2 = new Customer(1,s1[0],s1[1],"2000-10-10",2,6,"Wesley Success");
+ Customer c2 = new Customer(1,s1[0],s1[1],s1[3],2,Integer.valueOf(s1[4]),"Wesley Success");
  MovieDAO dao1= new CustomerDAODBImpl();
  dao1.add_Customer(c2);
  
