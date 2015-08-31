@@ -14,6 +14,40 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="jquery.seat-charts.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/Select_Seats.css">
+         <script type="text/javascript">
+		            function check_data_C()
+		            {
+		               var flag = true;
+		               var message = '';
+		
+		               // ---------- Check ----------
+		               var t1 = document.getElementById('t1');
+		               if(t1.value=='')
+		               {
+		                  message = message + '姓名不能為空白\n';
+		                  flag = false;
+		               }
+		               // ---------- Check ----------
+		               var t2 = document.getElementById('t2');
+		               if(t2.value=='')
+		               {
+		                  message = message + '電話不能為空白\n';
+		                  flag = false;
+		               }
+		               
+		               if(!flag) 
+		               {
+		                  alert(message);
+		               }
+		               
+		               if(flag) 
+		               {
+
+		                   selected-opt.submit();
+		               }
+		               return flag;
+		            }
+		            </script>
     </head>
     <body>
         <div id="page">
@@ -99,7 +133,7 @@
                
                
                
-                <form id="selected-opt" name="selected-opt" action="Order_comfirm.jsp" method="post" onSubmit="return check_data();">
+                <form id="selected-opt" name="selected-opt" action="Order_comfirm.jsp" method="post" onSubmit="return check_data_C();">
 				
 				<p>
 						  Email:<input id="t1" type="text" name="seat" onblur="getData()" /> <img id="img1" width="50px" height="50px" />
@@ -114,7 +148,7 @@
 								<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeStart")%>" id="<%=request.getParameter("sessionTimeStart")%>"> 
 								<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeEnd")%>" id="<%=request.getParameter("sessionTimeEnd")%>"> 
 				
-				<p><input class="checkout-button" type="submit" value="下訂單" OnClick="check_data();"/>
+				<p><input type="submit" name="submit" value="下訂單" class="checkout-button"/>
 				
 				</form>
                 </div>
@@ -128,37 +162,7 @@
             </div>
 
             <script type="text/javascript">
-		            function check_data()
-		            {
-		               var flag = true;
-		               var message = '';
-		
-		               // ---------- Check ----------
-		               var t1 = document.getElementById('t1');
-		               if(t1.value=='')
-		               {
-		                  message = message + '姓名不能為空白\n';
-		                  flag = false;
-		               }
-		               // ---------- Check ----------
-		               var t2 = document.getElementById('t2');
-		               if(t2.value=='')
-		               {
-		                  message = message + '電話不能為空白\n';
-		                  flag = false;
-		               }
-		               
-		               if(!flag) 
-		               {
-		                  alert(message);
-		               }
-		               
-		               if(flag) 
-		               {
-		            	   Order_comfirm.submit();
-		               }
-		               return flag;
-		            }
+		            
                 var price = 10; //price
 
                 $(document).ready(function () {

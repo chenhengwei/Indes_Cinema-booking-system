@@ -859,7 +859,7 @@
                             </select>
                              <!--送出-->   
                             <div class="btm-w"> 
-                            <a href="javascript:searchMovieByCinema()" class="search-btm color-mov" OnClick="check_data();">送出</a>
+                            <a href="javascript:check_data()" class="search-btm color-mov">送出</a>
                                <input type="button" value="Submit" class="search-btm color-mov" OnClick="check_data();">                          
                                 
                             </div>
