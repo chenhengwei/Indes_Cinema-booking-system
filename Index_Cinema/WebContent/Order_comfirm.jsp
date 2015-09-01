@@ -28,9 +28,15 @@ data2="\""+s1[1]+"\"";
 out.print(data1);
 out.print("人"+Integer.valueOf(s1[4]));
 
- Customer c2 = new Customer(1,s1[0],s1[1],s1[3],2,Integer.valueOf(s1[4]),"Wesley Success");
- MovieDAO dao1= new CustomerDAODBImpl();
- dao1.add_Customer(c2);
+
+//Ticket t = new Ticket("WWW@hotmail.com","0933231110","2014-10-10",2,3,"N","1_10,1_2,1_3");       
+//TicketDAO dao = new TicketDAODBImpl();
+//dao.add_ticket(t);
+
+
+ //Customer c2 = new Customer(1,s1[0],s1[1],s1[3],2,Integer.valueOf(s1[4]),"Wesley Success");
+ //MovieDAO dao1= new CustomerDAODBImpl();
+ //dao1.add_Customer(c2);
  
 //  String s1[] = request.getParameterValues("seat");
 //  Customer c = new Customer(s1[0],s1[1],s1[3],2,6,"Wesley Success");

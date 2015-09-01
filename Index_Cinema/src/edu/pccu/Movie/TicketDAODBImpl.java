@@ -33,18 +33,19 @@ public class TicketDAODBImpl implements TicketDAO{
             // catach 去擷取
             Connection conn = DriverManager.getConnection(CONN_STRING);
             Statement stmt = conn.createStatement();
-            String query = "Select * from ticket_Info";
+            String query = "Select * from ticket_Info where valid = 'Y'";
             ResultSet rs = stmt.executeQuery(query);
             ArrayList<Ticket> alist = new ArrayList();
             while (rs.next()) {
-                alist.add(new Ticket(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7)));
-
+                /*alist.add(new Ticket(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7)));*/            	
+				alist.add(new Ticket(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6),
+						rs.getString(7), rs.getString(8)));
             }
             return alist;
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -56,19 +57,21 @@ public class TicketDAODBImpl implements TicketDAO{
             // catach 去擷取
             Connection conn = DriverManager.getConnection(CONN_STRING);
             Statement stmt = conn.createStatement();
-            String query = "Select * from ticket_Info WHERE mail_account = '" + mail_account +
+            String query = "Select * from ticket_Info WHERE valid = 'Y' "
+            		+ "AND mail_account = '" + mail_account +
                     "' AND phone_password = '" + phone_password + "'";
             ResultSet rs = stmt.executeQuery(query);
             ArrayList<Ticket> alist = new ArrayList();
             while (rs.next()) {
-                alist.add(new Ticket(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7)));
+                alist.add(new Ticket(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6),
+						rs.getString(7), rs.getString(8)));
 
             }
             return alist;
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -80,22 +83,47 @@ public class TicketDAODBImpl implements TicketDAO{
             // catach 去擷取
             Connection conn = DriverManager.getConnection(CONN_STRING);
             Statement stmt = conn.createStatement();
-            String query = "Select * from ticket_Info WHERE mail_account='" + mail_account + "'";
+            String query = "Select * from ticket_Info WHERE valid = 'Y'"
+            		+ " AND mail_account='" + mail_account + "'";
             ResultSet rs = stmt.executeQuery(query);
             ArrayList<Ticket> alist = new ArrayList();
             while (rs.next()) {
-                alist.add(new Ticket(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7)));
+                alist.add(new Ticket(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6),
+						rs.getString(7), rs.getString(8)));
 
             }
             return alist;
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
 
+	@Override
+	public int cancel_ticket(Ticket ticket) {
+		int count = 0;
+    	try {
+            Class.forName(DRIVER_NAME);  // 把符合的API 全部都進來 但是會有 expection , try catach 去擷取
+            Connection conn = DriverManager.getConnection(CONN_STRING);
+            String query = "update ticket_Info set valid = ? WHERE ticket_no = ? AND valid = ?";
+            PreparedStatement ppstemt = conn.prepareStatement(query);
+            ppstemt.setString(1, "N");
+            ppstemt.setInt(2, ticket.getTicket_no());
+            ppstemt.setString(3, "Y");
+            count = ppstemt.executeUpdate();
+            ppstemt.cancel();
+            conn.close();
+            return count;
+    	} catch (ClassNotFoundException ex) {
+            Logger.getLogger(TicketDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(TicketDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+		return -1;
+	}
+    
     @Override
     public int remove_ticket(Ticket ticket) {
         int count = 0;
@@ -112,11 +140,48 @@ public class TicketDAODBImpl implements TicketDAO{
             return count;
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
 		return -1;
     }
-    
+
+	@Override
+	public int add_ticket(Ticket ticket) {
+
+            int count = 0;    
+          try {
+            Class.forName(DRIVER_NAME);  // 把符合的API 全部都進來 但是會有 expection , try catach 去擷取
+            Connection conn = DriverManager.getConnection(CONN_STRING);
+            String query = "Insert into ticket_Info "
+                         + "(mail_account,phone_password,order_date,"
+                         + "session_ID,people,valid,seat_list)"
+            		 +" VALUES (?,?,?,?,?,?,?)";
+            PreparedStatement ppstemt = conn.prepareStatement(query);
+
+            //ppstemt.setInt(1, customer.get_C_ticket_no());
+            ppstemt.setString(1, ticket.getMail_account());
+            ppstemt.setString(2, ticket.getPhone_password());
+            ppstemt.setString(3, ticket.getOrder_date());
+            ppstemt.setInt(4, ticket.getSession_ID());
+            ppstemt.setInt(5, ticket.getPeople());
+            ppstemt.setString(6, ticket.getValid());
+            ppstemt.setString(7, ticket.getSeat_list());
+        
+            ppstemt.executeUpdate();
+            count = ppstemt.executeUpdate();
+            ppstemt.cancel();
+            conn.close();           
+            
+            return count;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }      
+               
+        return -1;
+                
+	}    
 }
