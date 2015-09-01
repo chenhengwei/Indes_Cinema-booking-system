@@ -10,7 +10,7 @@
         <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>電影訂票平台</title>
-        <link href="http://travel.ezding.com.tw/favicon.ico" rel="shortcut icon">
+        <link href="http://img.sj33.cn/uploads/allimg/201206/20120611093440396.png" rel="shortcut icon">
         <link href="../css/jquery-ui-1.11.2.min.css" rel="stylesheet" type="text/css">
         <link href="css/reset.css" rel="stylesheet" type="text/css">
         <link href="css/header_141226.css" rel="stylesheet" type="text/css">
@@ -609,8 +609,10 @@
     </head>
 
     <body>
-         <%MovieDAO dao = new MovieDAODBImpl();
-                ArrayList<Movie> list = dao.getAllMovies();
+         <%
+         MovieDAO dao = new MovieDAODBImpl();
+         ArrayList<Movie> list = dao.getAllMovies();
+                
                 %>
         <div id="fadeMsg"></div>
         <!--Header-->
@@ -668,7 +670,7 @@
             
             <!--左右分頁 -->
             <!-- <a href="#" class="Banner-pic" id="bigBanner" target="_blank" style="display: block; background-image: url();"></a>-->
-            <a href="#" class="Banner-pic" id="bigBanner" target="_blank" style="display: block; background-image: url(http://i.ytimg.com/vi/FAhXB1P5PRc/maxresdefault.jpg) "></a>
+            <a href="#" class="Banner-pic" id="bigBanner" target="_blank" style="display: block; background-image: url(https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xta1/t31.0-8/s2048x2048/11402373_1598800753693506_1485574938779458160_o.jpg) "></a>
             <a href="#" class="Banner-btn-left" onclick="showBigBannerImg(-1)"><i class="fa fa-angle-left"></i></a>
             <a href="#" class="Banner-btn-right" onclick="showBigBannerImg(1)"><i class="fa fa-angle-right"></i></a>
             <div class="search-width">

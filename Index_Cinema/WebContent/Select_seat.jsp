@@ -4,7 +4,7 @@
     Author     : chenwesley
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="edu.pccu.Movie.*,java.util.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,40 +14,7 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="jquery.seat-charts.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/Select_Seats.css">
-         <script type="text/javascript">
-		            function check_data_C()
-		            {
-		               var flag = true;
-		               var message = '';
-		
-		               // ---------- Check ----------
-		               var t1 = document.getElementById('t1');
-		               if(t1.value=='')
-		               {
-		                  message = message + '姓名不能為空白\n';
-		                  flag = false;
-		               }
-		               // ---------- Check ----------
-		               var t2 = document.getElementById('t2');
-		               if(t2.value=='')
-		               {
-		                  message = message + '電話不能為空白\n';
-		                  flag = false;
-		               }
-		               
-		               if(!flag) 
-		               {
-		                  alert(message);
-		               }
-		               
-		               if(flag) 
-		               {
 
-		                   selected-opt.submit();
-		               }
-		               return flag;
-		            }
-		            </script>
     </head>
     <body>
         <div id="page">
@@ -127,17 +94,10 @@
 
                 </div>
                <div id="Customer_info">
-               
-               
-               
-               
-               
-               
+
                 <form id="selected-opt" name="selected-opt" action="Order_comfirm.jsp" method="post" onSubmit="return check_data_C();">
 				
-				<p>
-						  Email:<input id="t1" type="text" name="seat" onblur="getData()" /> <img id="img1" width="50px" height="50px" />
-				</p>
+				<p>       Email:<input id="t1" type="text" name="seat" onblur="getData()" /> <img id="img1" width="50px" height="50px" /></p>
 				
 							    <input type="hidden" id="dup" value="1" />
 			    <p>Mobile Phone:<input id="t2" type="text" name="seat" /></p>
@@ -159,18 +119,38 @@
 				
 				
 				</form>
+				
+				
             </div>
-
-            <script type="text/javascript">
-		            
+					<%
+					// inport from SQL sold_Seat
+					SeatDAO dao = new SeatsDAODBImpl();
+					ArrayList<Seats> list = dao.OrderedSeats();
+					//System.out.println(list.size());
+					String sold_seats ="";
+					for(Seats m : list){
+					   
+					    sold_seats = sold_seats+("'"+m.R_a+"_"+m.S_a+"',");
+					                           
+					}
+					//System.out.println(sold_seats);
+					
+					%>
+					            
+			<script type="text/javascript">
+			
+	
+			    var arr = [<%=sold_seats%>];
                 var price = 10; //price
-
+                var arr1 = ['1-1','1_2', '4_4', '4_5', '6_6', '6_7', '8_5', '8_6', '8_7', '8_8','10_1','10_2','10_3',];
+                var Order_PP = <%=request.getParameter("ticketQuantity")%>;
+                
                 $(document).ready(function () {
                     var $cart = $('#selected-seats'), //Sitting Area
                         $counter = $('#counter'), //Votes
                         $total = $('#total'), //Total money
                         $cart_opt = $('#selected-opt');
-
+					
                     var sc = $('#seat-map').seatCharts({
                         map: [//Seating chart
                             'aaaaaaaaaa',
@@ -182,7 +162,7 @@
                             'aaaaaaaaaa',
                             'aaaaaaaaaa',
                             'aaaaaaaaaa',
-                            'aa__aa__aa'
+                            'aaaaaaaaaa'
                         ],
                         naming: {
                             top: false,
@@ -198,45 +178,62 @@
                             ]
                         },
                         click: function () { //Click event
-                            if (this.status() == 'available') { //optional seat
+                            if (this.status() == 'available' && Order_PP > sc.find('selected').length) { //optional seat
                                 $('<li>R' + (this.settings.row + 1) + ' S' + this.settings.label + '</li>')
                                         .attr('id', 'cart-item-' + this.settings.id)
                                         .data('seatId', this.settings.id)
                                         .appendTo($cart);
                                 //alert('id');
                                 //alert('cart-item-');
-								//alert(this.settings.row + 1);
+								
 								//alert(this.settings.label);
 								
                                 $counter.text(sc.find('selected').length + 1);
                                 
-                                //alert(sc.find('selected').length + 1);
+                              //alert(this.settings.row);
                                 
                                 $total.text(recalculateTotal(sc) + price);
                                 
                                 //alert(this.settings.id);
                                 //<input type="hidden" name="seat" value="1_10">
+//                                 $('<input/>')
+//                                 .attr('type', 'hidden')
+//                                 .attr('name', 'seat')
+//                                 .attr('value', this.settings.id)
+//                                 .attr('id', 'opt'+this.settings.id)
+//                                 .appendTo($cart_opt);
+
+                                $('<input/>')
+                                 .attr('type', 'hidden')
+                                 .attr('name', 'seat_Ordered')
+                                 .attr('value', (this.settings.row + 1))
+                                 .attr('id', 'opt_R'+(this.settings.row + 1))
+                                 .appendTo($cart_opt);
+                                
                                 $('<input/>')
                                 .attr('type', 'hidden')
-                                .attr('name', 'seat')
-                                .attr('value', this.settings.id)
-                                .attr('id', 'opt'+this.settings.id)
+                                .attr('name', 'seat_Ordered')
+                                .attr('value', this.settings.label)
+                                .attr('id', 'opt_S'+ this.settings.label)
                                 .appendTo($cart_opt);
+                                
                                 
                                 return 'selected';
                             } else if (this.status() == 'selected') { //Checked
                                 //Update Number
                                 $counter.text(sc.find('selected').length - 1);
                             
-                                //alert(sc.find('selected').length - 1);
+                                //alert(sc.find('selected').length);
                                 //update totalnum
                                 $total.text(recalculateTotal(sc) - price);
                                 
                                 //alert(recalculateTotal(sc) - price);
                                 //Delete reservation
                                 $('#cart-item-' + this.settings.id).remove();
-                                $('#opt'+this.settings.id).remove();
-                               
+                                //$('#opt'+this.settings.id).remove();
+                                
+                                $('#opt_R'+(this.settings.row + 1)).remove();
+                                $('#opt_S'+ this.settings.label).remove();
                                 
                                 //optional
                                 return 'available';
@@ -245,10 +242,11 @@
                             } else {
                                 return this.style();
                             }
+                      
                         }
                     });
                     //sold seat
-                    sc.get(['1-1', '1_2', '4_4', '4_5', '6_6', '6_7', '8_5', '8_6', '8_7', '8_8', '10_1', '10_2', '10_3']).status('unavailable');
+                    sc.get(arr).status('unavailable');
 
                 });
 
@@ -258,8 +256,39 @@
                     sc.find('selected').each(function () {
                         total += price;
                     });
-
+					
                     return total;
+                }
+                
+                function check_data_C()
+                {
+                   var ticketQuantity = <%=request.getParameter("ticketQuantity")%>;
+                   var flag = true;
+                   var message = '';
+                   
+    			
+    			
+                   // ---------- Check ----------
+                   var t1 = document.getElementById('t1');
+                   if(t1.value==''){
+                      message = message + '姓名不能為空白\n';
+                      flag = false;
+                   }
+                   // ---------- Check ----------
+                   var t2 = document.getElementById('t2');
+                   if(t2.value==''){
+                      message = message + '電話不能為空白\n';
+                      flag = false;
+                   }
+                   
+                   if(!flag) {
+                      alert(message);
+                   }
+                   
+                   if(flag){
+                       selected-opt.submit();
+                   }
+                   return flag;
                 }
             </script>
         </div>
