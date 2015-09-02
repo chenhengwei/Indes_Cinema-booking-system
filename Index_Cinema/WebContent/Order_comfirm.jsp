@@ -5,24 +5,81 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<%!int f; %>
 <%
+//客戶資訊傳入陣列
 String s1[] = request.getParameterValues("seat");
 
-
-
-out.println("MAil: "+s1[0]);
+//客戶資訊
+/* out.println("MAil: "+s1[0]);
 out.println("phone:"+s1[1]);
 out.println("Movie: "+new String(s1[2].getBytes( "ISO-8859-1"), "UTF-8") );
 out.println("Date: "+s1[3]);
 out.println("PP: "+s1[4]);
 out.println("Start:"+s1[5]);
-out.println("End:  "+s1[6]);
+out.println("End:  "+s1[6]); */
 
+//訂位資訊傳入陣列
+String s2[] = request.getParameterValues("seat_Ordered");
+
+String ttl_seat_order="";
+String ttl_order_No_under="";
+
+
+//產生訂位資訊(ttl_seat_order)
+for(int j=0;j<=(s2.length-2);j=j+2){
+	
+	ttl_seat_order=ttl_seat_order+("R"+s2[j]+"_S"+s2[j+1]+", ");
+	ttl_order_No_under=ttl_order_No_under+(s2[j]+"_"+s2[j+1]+", ");
+}
+	//匯入客戶資訊->產生自動訂單編號
+	Ticket t = new Ticket(s1[0],s1[1],s1[3],2,Integer.valueOf(s1[4]),"Y",ttl_seat_order);       
+    TicketDAO dao = new TicketDAODBImpl();
+    int auto_ticket_no = dao.add_ticket(t);
+	//回傳 自動訂單號
+
+	
+
+for(int i=0;i<=(s2.length-2);i=i+2){
+	
+	int f;
+    Seats ordered_s = new Seats("A",s2[i],s2[i+1],"Y",auto_ticket_no,"Y");
+    SeatDAO Seat_dao = new SeatsDAODBImpl();
+    f = Seat_dao.add_Seats_ticket_no(ordered_s);
+    //out.print(f);
+    this.f=f;
+}
+
+if(f!=1){
+	out.print("訂單失敗 , 請回上一頁");
+}else{
+
+	
+	
+	out.print("訂單成功");
+	out.println("MAil: "+s1[0]);
+	out.println("phone:"+s1[1]);
+	out.println("Movie: "+new String(s1[2].getBytes( "ISO-8859-1"), "UTF-8") );
+	out.println("Date: "+s1[3]);
+	out.println("人數: "+s1[4]);
+	out.println("Start:"+s1[5]);
+	out.println("End:  "+s1[6]);
+}
 
 %>
 
+<%
+//  		Ticket t = new Ticket(s1[0],s1[1],s1[3],2,Integer.valueOf(s1[4]),"Y",ttl_seat_order);       
+//         TicketDAO dao = new TicketDAODBImpl();
+//         int auto_ticket_no = dao.add_ticket(t);
+//         System.out.println(auto_ticket_no);
 
-
+//         Seats ordered_s = new Seats("A","6","10","Y",auto_ticket_no,"Y");
+//         SeatDAO Seat_dao = new SeatsDAODBImpl();
+//         int f = Seat_dao.add_Seats_ticket_no(ordered_s);
+//         System.out.println(f);
+    
+%>
 
 
 
@@ -41,44 +98,45 @@ out.println("End:  "+s1[6]);
 // }
 
 
-String s2[] = request.getParameterValues("seat_Ordered");
-String ttl_seat_order="";
-String ttl_order_No_under="";
+//String s2[] = request.getParameterValues("seat_Ordered");
+//String ttl_seat_order="";
+//String ttl_order_No_under="";
 
 //out.println(s2.length);
 
-for (String s : s2)
-{
-	String tmp_s2 = new String(s.getBytes("ISO-8859-1"), "UTF-8");
+//for (String s : s2)
+//{
+//	String tmp_s2 = new String(s.getBytes("ISO-8859-1"), "UTF-8");
 	//out.println(tmp_s2);
 	
-}
+//}
 
 // Seats add_ordered_seat = new Seats("A","7","5","Y");
 // SeatDAO seat_dao = new SeatsDAODBImpl();
 // seat_dao.add_Seats(add_ordered_seat);
 
 
-for(int i=0;i<=(s2.length-2);i=i+2){
+//for(int i=0;i<=(s2.length-2);i=i+2){
 	
-	Seats add_ordered_seat = new Seats("A",s2[i],s2[i+1],"Y");
-	SeatDAO seat_dao = new SeatsDAODBImpl();
-	seat_dao.add_Seats(add_ordered_seat);
+// 	Seats add_ordered_seat = new Seats("A",s2[i],s2[i+1],"Y");
+// 	SeatDAO seat_dao = new SeatsDAODBImpl();
+// 	seat_dao.add_Seats(add_ordered_seat);
 	
-	ttl_seat_order=ttl_seat_order+("R"+s2[i]+"_S"+s2[i+1]+", ");
-	ttl_order_No_under=ttl_order_No_under+(s2[i]+"_"+s2[i+1]+", ");
+// 	ttl_seat_order=ttl_seat_order+("R"+s2[i]+"_S"+s2[i+1]+", ");
+// 	ttl_order_No_under=ttl_order_No_under+(s2[i]+"_"+s2[i+1]+", ");
 	
 
 	
 	
-}
+// }
 
-out.println("訂位編號：   ["+ttl_seat_order+"]");
+// out.println("訂位編號：   ["+ttl_seat_order+"]");
 //out.println("訂位編號：   "+ttl_order_No_under);
 
-Customer c = new Customer(s1[0],s1[1],s1[3],2,Integer.valueOf(s1[4]),"N",ttl_seat_order);       
-MovieDAO dao = new CustomerDAODBImpl();
-dao.add_Customer(c);
+//Customer c = new Customer(s1[0],s1[1],s1[3],2,Integer.valueOf(s1[4]),"N",ttl_seat_order);       
+//MovieDAO dao_X = new CustomerDAODBImpl();
+//dao_X.add_Customer(c);
+
 
 
 //語法 會寫入兩次資料 之後debug
