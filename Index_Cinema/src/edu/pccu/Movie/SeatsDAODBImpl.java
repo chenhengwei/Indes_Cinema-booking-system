@@ -57,7 +57,34 @@ public class SeatsDAODBImpl implements SeatDAO{
 
     @Override
     public int add_Seats(Seats seats) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    int count=0;
+        try {
+            Class.forName(DRIVER_NAME);  // 把符合的API 全部都進來 但是會有 expection , try catach 去擷取
+            Connection conn = DriverManager.getConnection(CONN_STRING);
+            String query = "Insert into room_seat"
+                         + "(room, R, S,sold)"
+            		 +" VALUES (?,?,?,?)";
+            PreparedStatement ppstemt = conn.prepareStatement(query);
 
+            //ppstemt.setInt(1, customer.get_C_ticket_no());
+            ppstemt.setString(1, seats.room);
+            ppstemt.setString(2, seats.R_a);
+            ppstemt.setString(3, seats.S_a);
+            ppstemt.setString(4, seats.sold);
+
+            count =ppstemt.executeUpdate();
+       
+            ppstemt.cancel();
+            conn.close();
+            return count;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
+             return -1;
+     }
 }
+
+

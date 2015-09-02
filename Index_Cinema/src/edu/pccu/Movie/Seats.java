@@ -8,6 +8,13 @@ public class Seats {
     public String R_a;
     public String S_a;
     public String sold;
+    
+    public Seats(String room, String R_a, String S_a, String sold) {
+        this.room = room;
+        this.R_a = R_a;
+        this.S_a = S_a;
+        this.sold = sold;
+    }
     public String vaild;
 
     public Seats(String room, String R_a, String S_a, String sold, String vaild) {

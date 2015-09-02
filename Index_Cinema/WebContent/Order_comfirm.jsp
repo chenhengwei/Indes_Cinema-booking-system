@@ -54,16 +54,27 @@ for (String s : s2)
 	
 }
 
+// Seats add_ordered_seat = new Seats("A","7","5","Y");
+// SeatDAO seat_dao = new SeatsDAODBImpl();
+// seat_dao.add_Seats(add_ordered_seat);
 
-for(int i=0;i<(s2.length/2);i++){
+
+for(int i=0;i<=(s2.length-2);i=i+2){
+	
+	Seats add_ordered_seat = new Seats("A",s2[i],s2[i+1],"Y");
+	SeatDAO seat_dao = new SeatsDAODBImpl();
+	seat_dao.add_Seats(add_ordered_seat);
 	
 	ttl_seat_order=ttl_seat_order+("R"+s2[i]+"_S"+s2[i+1]+", ");
 	ttl_order_No_under=ttl_order_No_under+(s2[i]+"_"+s2[i+1]+", ");
+	
 
+	
+	
 }
 
 out.println("訂位編號：   ["+ttl_seat_order+"]");
-out.println("訂位編號：   "+ttl_order_No_under);
+//out.println("訂位編號：   "+ttl_order_No_under);
 
 Customer c = new Customer(s1[0],s1[1],s1[3],2,Integer.valueOf(s1[4]),"N",ttl_seat_order);       
 MovieDAO dao = new CustomerDAODBImpl();
