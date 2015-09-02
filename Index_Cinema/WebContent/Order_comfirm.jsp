@@ -7,42 +7,73 @@
 <title>Insert title here</title>
 <%
 String s1[] = request.getParameterValues("seat");
-String data1;
-String data2;
-//out.println(s1.length);
 
-for (String s : s1)
-{
-	String tmp = new String(s.getBytes("ISO-8859-1"), "UTF-8");
-	//out.println(tmp);
+
+
+out.println("MAil: "+s1[0]);
+out.println("phone:"+s1[1]);
+out.println("Movie: "+new String(s1[2].getBytes( "ISO-8859-1"), "UTF-8") );
+out.println("Date: "+s1[3]);
+out.println("PP: "+s1[4]);
+out.println("Start:"+s1[5]);
+out.println("End:  "+s1[6]);
+
+
+%>
+
+
+
+
+
+
+
+<%
+// String SD[] = request.getParameterValues("seat");
+// String data1;
+// String data2;
+// //out.println(s1.length);
+
+// for (String s : SD)
+// {
+// 	//String tmp = new String(s.getBytes("ISO-8859-1"), "UTF-8");
+// 	out.println(s);
 	
-}
+// }
 
 
 String s2[] = request.getParameterValues("seat_Ordered");
 String ttl_seat_order="";
-String data_s2_2;
+String ttl_order_No_under="";
+
 //out.println(s2.length);
 
 for (String s : s2)
 {
 	String tmp_s2 = new String(s.getBytes("ISO-8859-1"), "UTF-8");
-	out.println(tmp_s2);
+	//out.println(tmp_s2);
 	
 }
 
 
 for(int i=0;i<(s2.length/2);i++){
 	
-	ttl_seat_order=ttl_seat_order+("R"+s2[i]+"_S"+s2[i+1]);
-	out.println(ttl_seat_order);
-	
+	ttl_seat_order=ttl_seat_order+("R"+s2[i]+"_S"+s2[i+1]+", ");
+	ttl_order_No_under=ttl_order_No_under+(s2[i]+"_"+s2[i+1]+", ");
+
 }
 
+out.println("訂位編號：   ["+ttl_seat_order+"]");
+out.println("訂位編號：   "+ttl_order_No_under);
 
 Customer c = new Customer(s1[0],s1[1],s1[3],2,Integer.valueOf(s1[4]),"N",ttl_seat_order);       
 MovieDAO dao = new CustomerDAODBImpl();
 dao.add_Customer(c);
+
+
+//語法 會寫入兩次資料 之後debug
+// Ticket T = new Ticket(s1[0],s1[1],s1[3],2,Integer.valueOf(s1[4]),"N",ttl_seat_order);       
+// TicketDAO daoT =  new TicketDAODBImpl();
+// daoT.add_ticket(T);
 %>
 
 
