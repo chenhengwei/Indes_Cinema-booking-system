@@ -35,7 +35,7 @@ for(int j=0;j<=(s2.length-2);j=j+2){
 	//匯入客戶資訊->產生自動訂單編號
 	Ticket t = new Ticket(s1[0],s1[1],s1[3],2,Integer.valueOf(s1[4]),"Y",ttl_seat_order);       
     TicketDAO dao = new TicketDAODBImpl();
-    int auto_ticket_no = dao.add_ticket(t);
+    int auto_ticket_no = dao.add_ticket_no(t);
 	//回傳 自動訂單號
 
 	
@@ -45,7 +45,7 @@ for(int i=0;i<=(s2.length-2);i=i+2){
 	int f;
     Seats ordered_s = new Seats("A",s2[i],s2[i+1],"Y",auto_ticket_no,"Y");
     SeatDAO Seat_dao = new SeatsDAODBImpl();
-    f = Seat_dao.add_Seats_ticket_no(ordered_s);
+    f = Seat_dao.add_Seats(ordered_s );
     //out.print(f);
     this.f=f;
 }
