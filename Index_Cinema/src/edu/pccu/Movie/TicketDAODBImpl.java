@@ -107,13 +107,26 @@ public class TicketDAODBImpl implements TicketDAO{
     	try {
             Class.forName(DRIVER_NAME);  // 把符合的API 全部都進來 但是會有 expection , try catach 去擷取
             Connection conn = DriverManager.getConnection(CONN_STRING);
+            conn.setAutoCommit(false);            
+            //先更新ticket_Info資料表的內容
             String query = "update ticket_Info set valid = ? WHERE ticket_no = ? AND valid = ?";
             PreparedStatement ppstemt = conn.prepareStatement(query);
             ppstemt.setString(1, "N");
             ppstemt.setInt(2, ticket.getTicket_no());
             ppstemt.setString(3, "Y");
+            ppstemt.executeUpdate();
+            
+            //接著更新room_seat資料表的內容
+            query = "UPDATE room_seat SET sold = ?, ticket_no = ? WHERE ticket_no = ?";
+            ppstemt = conn.prepareStatement(query);
+            ppstemt.setString(1, "N");
+            ppstemt.setNull(2, java.sql.Types.INTEGER);
+            ppstemt.setInt(3, ticket.getTicket_no());
             count = ppstemt.executeUpdate();
-            ppstemt.cancel();
+            
+            conn.commit();
+            conn.setAutoCommit(true);
+            ppstemt.cancel();            
             conn.close();
             return count;
     	} catch (ClassNotFoundException ex) {
@@ -123,6 +136,7 @@ public class TicketDAODBImpl implements TicketDAO{
         }
 		return -1;
 	}
+
     
     @Override
     public int remove_ticket(Ticket ticket) {
@@ -222,9 +236,7 @@ public class TicketDAODBImpl implements TicketDAO{
         }      
                
         return -1;
-                
-    
-    
-    
     }
+
+   
 }

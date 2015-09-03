@@ -15,4 +15,6 @@ public interface SeatDAO  {
     public int remove_Seats(Seats seats);
     
     public int add_Seats(Seats seats);
+    
+    public String find_Seat_by_RS(String R_a,String S_a);
 }

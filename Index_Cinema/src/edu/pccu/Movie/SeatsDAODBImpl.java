@@ -87,11 +87,35 @@ public class SeatsDAODBImpl implements SeatDAO{
         }      
                
         return -1;
-                
+
+    }
     
-    
-    
-    
+     @Override
+    public String find_Seat_by_RS(String R_a,String S_a) {
+         try {
+            Class.forName(DRIVER_NAME);  // 把符合的API 全部都進來 但是會有 expection , try catach 去擷取
+            Connection conn = DriverManager.getConnection(CONN_STRING);            
+            String query = "Select * from room_seat where R = ? and S = ?";
+            PreparedStatement ppstemt = conn.prepareStatement(query);
+            ppstemt.setString(1, R_a);
+            ppstemt.setString(2, S_a);
+
+            ResultSet rs = ppstemt.executeQuery();
+      
+            if (rs.next()) {
+                String s = rs.getString(4);
+                //Seats t = new Seats(rs.getString(1), rs.getString(2), rs.getString(3));
+                return s;
+            } else {
+                return "N";
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MovieDAODBImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return "N";
     }
 
 }
