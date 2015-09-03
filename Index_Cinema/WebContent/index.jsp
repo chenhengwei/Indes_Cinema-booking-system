@@ -652,16 +652,21 @@
 				var opt = document.createElement('option');
 				var item = splits[i].split(" ");	//將SessionID和show_time再以空白分割存進另一個陣列
 				opt.appendChild( document.createTextNode(item[1]));				
-				opt.value = item[0];
-				sessionList.appendChild(opt);				
+				opt.id = item[0];
+				opt.value = item[1];				
+				sessionList.appendChild(opt);	
 			}
 		}
-	}   
+	}
+	function saveSessionInfo(){		
+		var sessionList = document.getElementById("sessionList");		
+		var opt_id = sessionList[sessionList.selectedIndex].id;		
+		//將場次編號session_ID存進隱藏的input裡面
+		var session_ID = document.getElementById("session_ID");
+		session_ID.value = opt_id;
+		//alert(session_ID + " " + show_time);
+	}
         </script>
-        
-        
-        
-        
         
     </head>
 
@@ -812,9 +817,13 @@
                             
                             <input name="todays_date" id="todays_date" class="search-s2 icon-mov" value="日期" 
                             onfocus="showCalendarControl(this);" type="text">
-                            <select name="sessionList" id="sessionList" class="search-s2 icon-mov" onmouseover="loadSession(this)">
+                            <select name="sessionList" id="sessionList" class="search-s2 icon-mov" 
+                            onmouseover="loadSession(this)" onchange="saveSessionInfo()">
                             <option value="">選擇場次</option>
                             </select>
+                            <!-- 以下隱藏的input專門儲存選取的場次編號，提供資訊給下一個頁面取用 -->
+                            <input type="hidden" id="session_ID" name="session_ID" value="">
+                            
                             <!--時段(起)-->
                             
                             <!--<select name="sessionTimeStart" id="sessionTimeStart" class="search-s2 icon-mov">-->

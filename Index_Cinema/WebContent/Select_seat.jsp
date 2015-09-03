@@ -82,7 +82,8 @@
                     <p>Movie: <span> <%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%></span></p>
                     <p>Time: <span><%=request.getParameter("todays_date")%></span></p>
                     <p>People: <%=request.getParameter("ticketQuantity")%></p>
-                    <p>起: <%=request.getParameter("sessionTimeStart")%> 迄: <%=request.getParameter("sessionTimeEnd")%></p>
+                    <%-- <p>起: <%=request.getParameter("sessionTimeStart")%> 迄: <%=request.getParameter("sessionTimeEnd")%></p> --%>
+                    <p>放映時間: <%=request.getParameter("sessionList")%> 編號: <%=request.getParameter("session_ID")%>
                     <p>Seat: </p>
                     <ul id="selected-seats">
                         <!-- 會自己新增 選擇位子 -->    
