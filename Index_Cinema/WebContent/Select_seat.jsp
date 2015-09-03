@@ -95,7 +95,7 @@
 
                 </div>
                <div id="Customer_info">
-
+        <!-- ========================================================================================================== -->
                 <form id="selected-opt" name="selected-opt" action="Order_comfirm.jsp" method="post" onSubmit="return check_data_C();">
 				
 				<p>       Email:<input id="t1" type="text" name="seat" onblur="getData()" /> <img id="img1" width="50px" height="50px" /></p>
@@ -103,15 +103,22 @@
 							    <input type="hidden" id="dup" value="1" />
 			    <p>Mobile Phone:<input id="t2" type="text" name="seat" /></p>
 				
-								<input type="hidden" name="seat" value="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>" id="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>"> 
-								<input type="hidden" name="seat" value="<%=request.getParameter("todays_date")%>" id="<%=request.getParameter("todays_date")%>"> 
-								<input type="hidden" name="seat" value="<%=request.getParameter("ticketQuantity")%>" id="<%=request.getParameter("ticketQuantity")%>"> 
+			<!-- Movie   -->	<input type="hidden" name="seat" value="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>" id="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>"> 
+			<!-- Time    -->	<input type="hidden" name="seat" value="<%=request.getParameter("todays_date")%>" id="<%=request.getParameter("todays_date")%>"> 
+			<!-- People  -->	<input type="hidden" name="seat" value="<%=request.getParameter("ticketQuantity")%>" id="<%=request.getParameter("ticketQuantity")%>"> 
+								<!--    
 								<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeStart")%>" id="<%=request.getParameter("sessionTimeStart")%>"> 
-								<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeEnd")%>" id="<%=request.getParameter("sessionTimeEnd")%>"> 
-				
+								<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeEnd")%>" id="<%=request.getParameter("sessionTimeEnd")%>">   
+								-->
+			<!-- 放映時間  -->	<input type="hidden" name="seat" value="<%=request.getParameter("sessionList")%>" id="<%=request.getParameter("sessionList")%>"> 
+								<input type="hidden" name="seat" value="" id="Money"> 
+								<input type="hidden" name="seat" value="" id="ordered_pp"> 
+								
+								
 				<p><input type="submit" name="submit" value="下訂單" class="checkout-button"/>
 				
 				</form>
+		 <!-- ========================================================================================================== -->		
                 </div>
                 <div style="clear:both">
                 
@@ -190,11 +197,12 @@
 								//alert(this.settings.label);
 								
                                 $counter.text(sc.find('selected').length + 1);
-                                
+                                SC_pp=sc.find('selected').length + 1;
+                                document.getElementById("ordered_pp").value = sc.find('selected').length + 1;//人數
                               //alert(this.settings.row);
                                 
                                 $total.text(recalculateTotal(sc) + price);
-                                
+                                document.getElementById("Money").value = recalculateTotal(sc) + price;//價錢
                                 //alert(this.settings.id);
                                 //<input type="hidden" name="seat" value="1_10">
 //                                 $('<input/>')
@@ -218,16 +226,21 @@
                                 .attr('id', 'opt_S'+ this.settings.label)
                                 .appendTo($cart_opt);
                                 
+                                //============================//
+                                
+                                getData();//check位子 是否 已定位
+                                
+                                //============================//
                                 
                                 return 'selected';
                             } else if (this.status() == 'selected') { //Checked
                                 //Update Number
                                 $counter.text(sc.find('selected').length - 1);
-                            
+                                document.getElementById("ordered_pp").value = sc.find('selected').length - 1;//人數
                                 //alert(sc.find('selected').length);
                                 //update totalnum
                                 $total.text(recalculateTotal(sc) - price);
-                                
+                                document.getElementById("Money").value = recalculateTotal(sc) - price; //價錢
                                 //alert(recalculateTotal(sc) - price);
                                 //Delete reservation
                                 $('#cart-item-' + this.settings.id).remove();
@@ -250,24 +263,25 @@
                     sc.get(arr).status('unavailable');
 
                 });
-
+				
                 //sum total money
                 function recalculateTotal(sc) {
                     var total = 0;
                     sc.find('selected').each(function () {
                         total += price;
+                        
                     });
-					
+                    
                     return total;
+                    
                 }
                 
+              //=====================================================================//  
                 function check_data_C()
                 {
-                   var ticketQuantity = <%=request.getParameter("ticketQuantity")%>;
+                   //var ticketQuantity = '<%=request.getParameter("ticketQuantity")%>';
                    var flag = true;
-                   var message = '';
-                   
-    			
+                   var message = '' ;
     			
                    // ---------- Check ----------
                    var t1 = document.getElementById('t1');
@@ -281,6 +295,12 @@
                       message = message + '電話不能為空白\n';
                       flag = false;
                    }
+                 // ---------- Check ----------
+				/*
+                   if(  ticketQuantity != SC_pp ){
+                       message = message + '訂位人數不符合\n';
+                       flag = false;
+                   */
                    
                    if(!flag) {
                       alert(message);
@@ -291,6 +311,72 @@
                    }
                    return flag;
                 }
+                
+                //========================================================================================//
+                
+                
+            var request;
+			function getData(){
+					//alert("11111111");
+					var i,j,obj,R,S;
+					obj = document.getElementsByName('seat_Ordered');  
+					//alert(obj.length);
+					for(i=0; i<= (obj.length-2); i=i+2){  
+					    R=obj[i].value; 
+					    S=obj[i+1].value; 
+					 
+				    //alert(R+","+S);
+				    num = "R"+R+"_"+"S"+S;
+				    
+					request = new XMLHttpRequest();
+	
+					request.open("GET", "Check_seats_avaliable.jsp?R="+R+"&S="+S,false);
+					// 這行是設定 request 要去哪取資料，尚未開始取
+					// 第三個參數打 true 可以想成，利用另外一個執行緒處理 Request
+					// 第三個參數打 false 可以想成，利用這一個執行緒處理 Request
+					
+					//var img1 = document.getElementById("img1");
+					//img1.src = "img/wait.gif";
+					
+					request.onreadystatechange = updateData;
+					// 當記憶體中的瀏覽器狀態改變時，呼叫 updateData 這個 function
+					
+					request.send(null); // 發動 request 去取資料	
+				}
+			}
+			
+			function updateData(){
+				if (request.readyState == 4){
+					
+				
+					//alert(request.responseText);
+					var check_Seat_available = request.responseText;
+					
+					if(check_Seat_available =='Y'){
+						
+						alert(num+": 座位 已被預約");
+						
+					}
+					else{alert(num+": 座位 可以下訂");}
+					
+					//var dup = document.getElementById("dup");
+					//dup.value = request.responseText.trim();
+					
+					//if (dup.value == "1")
+					//	{
+					//	var img1 = document.getElementById("img1");
+					//	img1.src = "img/a1.png";
+					//	}
+					//else
+					//	{
+					//	var img1 = document.getElementById("img1");
+					//	img1.src = "img/a0.png";
+					//	}
+					// alert(dup.value);
+				}
+			}
+ 
+                
             </script>
         </div>
         <!--footer-->

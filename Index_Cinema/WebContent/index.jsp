@@ -315,6 +315,7 @@
                    message = message + '人數不能為空白\n';
                    flag = false;
                } 
+               /* 
                 var sessionTimeStart = document.getElementById('sessionTimeStart');
                 if(sessionTimeStart.value  =='')
                 {
@@ -327,6 +328,7 @@
                    message = message + '時間不能為空白\n';
                    flag = false;
                }
+                */
                var sessionList = document.getElementById('sessionList');
                if(sessionList.value  =='')
                {
@@ -373,7 +375,7 @@
                 );
             }
         //判斷如果選項為 空值 跳出 提示訊息
-            function searchMovieByCinema() {
+           /* function searchMovieByCinema() {
         		alert("gp");
                 if ($('#cinemaId').val() == "") 
                 {
@@ -410,7 +412,7 @@
                 url += "&ticketQuantity=" + $('#booking_ticketQuantity').val();
 
                 location.href = url;
-            }
+            }*/
     
             // 輪播
             var timer;
@@ -606,66 +608,66 @@
 
                             });
         
-        //根據電影編號、日期、時間 取得相對應的所有場次    
-    var request;
-	function loadSession(s)
-	{	
-		//var movie_no = s[s.selectedIndex].id; // get id
-		var mgId = document.getElementById('mgId'); //電影編號的id
-		var movie_no = mgId[mgId.selectedIndex].id; //選擇到的電影id
-		var show_date = document.getElementById('todays_date').value;//日期的數值
-		if(mgId.value != '' && show_date.value != '' && show_date != '日期'){
-		//alert(show_date.value);
-		request = new XMLHttpRequest();
-		request.open("GET", "session_Ajax.jsp?movie_no="+movie_no+"&show_date="+show_date, true);
-		// 這行是設定 request 要去哪取資料，尚未開始取
-		// 第三個參數打 true 可以想成，利用另外一個執行緒處理 Request
-		// 第三個參數打 false 可以想成，利用這一個執行緒處理 Request
-		
-		request.onreadystatechange = updateData;
-		// 當記憶體中的瀏覽器狀態改變時，呼叫 updateData 這個 function
-		
-		request.send(null); // 發動 request 去取資料
-		}
-	}
-	
-	function updateData()
-	{
-		if (request.readyState == 4)
-		{		
-			//alert(request.responseText);
-			var sessionList = document.getElementById('sessionList');//畫面上的
-			sessionList.options.length = 0;	//先清空選擇場次裡的所有內容
-			//sessionList.options.add(new Option("選擇場次"));
-			var opt = document.createElement('option');
-			opt.appendChild( document.createTextNode('選擇場次A'));
-			opt.value = '';
-			sessionList.appendChild(opt);
-			
-			var myString = request.responseText;
-			var splits = myString.split(",");	//將Ajax傳回來的場次資料先用','分割存進陣列，
-												//每個元素的內容為SessionID加上show_time
-			splits.pop();	//移除陣列中最後一個空值的元素
-			
-			for(var i = 0;i<splits.length;i++){
-				//sessionList.options.add(new Option("" + splits[i], splits[i]));
-				var opt = document.createElement('option');
-				var item = splits[i].split(" ");	//將SessionID和show_time再以空白分割存進另一個陣列
-				opt.appendChild( document.createTextNode(item[1]));				
-				opt.id = item[0];
-				opt.value = item[1];				
-				sessionList.appendChild(opt);	
-			}
-		}
-	}
-	function saveSessionInfo(){		
-		var sessionList = document.getElementById("sessionList");		
-		var opt_id = sessionList[sessionList.selectedIndex].id;		
-		//將場次編號session_ID存進隱藏的input裡面
-		var session_ID = document.getElementById("session_ID");
-		session_ID.value = opt_id;
-		//alert(session_ID + " " + show_time);
-	}
+        			//根據電影編號、日期、時間 取得相對應的所有場次    
+				    var request;
+					function loadSession(s)
+					{	
+						//var movie_no = s[s.selectedIndex].id; // get id
+						var mgId = document.getElementById('mgId'); //電影編號的id
+						var movie_no = mgId[mgId.selectedIndex].id; //選擇到的電影id
+						var show_date = document.getElementById('todays_date').value;//日期的數值
+						if(mgId.value != '' && show_date.value != '' && show_date != '日期'){
+						//alert(show_date.value);
+						request = new XMLHttpRequest();
+						request.open("GET", "session_Ajax.jsp?movie_no="+movie_no+"&show_date="+show_date, true);
+						// 這行是設定 request 要去哪取資料，尚未開始取
+						// 第三個參數打 true 可以想成，利用另外一個執行緒處理 Request
+						// 第三個參數打 false 可以想成，利用這一個執行緒處理 Request
+						
+						request.onreadystatechange = updateData;
+						// 當記憶體中的瀏覽器狀態改變時，呼叫 updateData 這個 function
+						
+						request.send(null); // 發動 request 去取資料
+						}
+					}
+					
+					function updateData()
+					{
+						if (request.readyState == 4)
+						{		
+							//alert(request.responseText);
+							var sessionList = document.getElementById('sessionList');//畫面上的
+							sessionList.options.length = 0;	//先清空選擇場次裡的所有內容
+							//sessionList.options.add(new Option("選擇場次"));
+							var opt = document.createElement('option');
+							opt.appendChild( document.createTextNode('選擇場次A'));
+							opt.value = '';
+							sessionList.appendChild(opt);
+							
+							var myString = request.responseText;
+							var splits = myString.split(",");	//將Ajax傳回來的場次資料先用','分割存進陣列，
+																//每個元素的內容為SessionID加上show_time
+							splits.pop();	//移除陣列中最後一個空值的元素
+							
+							for(var i = 0;i<splits.length;i++){
+								//sessionList.options.add(new Option("" + splits[i], splits[i]));
+								var opt = document.createElement('option');
+								var item = splits[i].split(" ");	//將SessionID和show_time再以空白分割存進另一個陣列
+								opt.appendChild( document.createTextNode(item[1]));				
+								opt.id = item[0];
+								opt.value = item[1];				
+								sessionList.appendChild(opt);	
+							}
+						}
+					}
+					function saveSessionInfo(){		
+						var sessionList = document.getElementById("sessionList");		
+						var opt_id = sessionList[sessionList.selectedIndex].id;		
+						//將場次編號session_ID存進隱藏的input裡面
+						var session_ID = document.getElementById("session_ID");
+						session_ID.value = opt_id;
+						//alert(session_ID + " " + show_time);
+					}
         </script>
         
     </head>
@@ -752,8 +754,11 @@
                             <h3 style="margin-bottom:9px;">線上選位，取票才扣款</h3>
                         </div>
                         <ul class="mov-tag">
+                        
                              <li><a href="#" class="active" id="tab_mov_location">哪裡有空位</a></li>
-                            <li><a href="#" id="tab_mov_cinema">影城訂票</a></li>
+                             
+                            <!-- <li><a href="#" id="tab_mov_cinema">影城訂票</a></li>  -->
+                            
                         </ul>
 
                         <!--電影:哪裡有空位-->
@@ -779,10 +784,10 @@
                             <select name="mgId" id="mgId" class="search-s1 icon-mov">
                                 <option value="">選擇電影</option>
                                 <%for(int i=0;i<list.size();i++){%>
-    				<%-- <option value='<%out.print(list.get(i).get_m_name_c());%>'><%out.print(list.get(i).get_m_name_c());%></option> --%>
-                         <option id='<%out.print(list.get(i).get_m_no());%>' name
-                         value='<%out.print(list.get(i).get_m_name_c());%>'><%out.print(list.get(i).get_m_name_c());%></option>       
-                                <%}%>
+    							<%-- <option value='<%out.print(list.get(i).get_m_name_c());%>'><%out.print(list.get(i).get_m_name_c());%></option> --%>
+                        		 <option id='<%out.print(list.get(i).get_m_no());%>' name
+                        		 value='<%out.print(list.get(i).get_m_name_c());%>'><%out.print(list.get(i).get_m_name_c());%></option>       
+                               			 <%}%>
    								  
                      		<!--	
                                 <option value="1">台北</option>
@@ -820,6 +825,14 @@
                             <select name="sessionList" id="sessionList" class="search-s2 icon-mov" 
                             onmouseover="loadSession(this)" onchange="saveSessionInfo()">
                             <option value="">選擇場次</option>
+                            
+                            <!--
+                            <select name="sessionList" id="sessionList" class="search-s2 icon-mov" 
+                            onClick="loadSession(this)" onchange="saveSessionInfo()">
+                            <option value="">選擇場次</option>
+                            -->
+                            
+                            
                             </select>
                             <!-- 以下隱藏的input專門儲存選取的場次編號，提供資訊給下一個頁面取用 -->
                             <input type="hidden" id="session_ID" name="session_ID" value="">
@@ -827,7 +840,8 @@
                             <!--時段(起)-->
                             
                             <!--<select name="sessionTimeStart" id="sessionTimeStart" class="search-s2 icon-mov">-->
-                            <select name="sessionTimeStart" id="sessionTimeStart" class="search-s2 icon-mov">
+                            <!--
+                              <select name="sessionTimeStart" id="sessionTimeStart" class="search-s2 icon-mov">
                                 <option value="">時段(起)</option>
                                 <option value="07:00">07:00</option>
                                 <option value="07:30">07:30</option>
@@ -878,9 +892,11 @@
                                 <option value="06:00">06:00</option>
                                 <option value="06:30">06:30</option>
                             </select>
+                            -->
                             <!--時段(迄)-->
                             <!--<select name="sessionTimeEnd" id="sessionTimeEnd" class="search-s2 icon-mov">-->
-                            <select name="sessionTimeEnd" id="sessionTimeEnd" class="search-s2 icon-mov">
+                           <!--  
+                           	 <select name="sessionTimeEnd" id="sessionTimeEnd" class="search-s2 icon-mov">
                                 <option value="">時段(迄)</option>
                                 <option value="07:00">07:00</option>
                                 <option value="07:30">07:30</option>
@@ -931,10 +947,11 @@
                                 <option value="06:00">06:00</option>
                                 <option value="06:30">06:30</option>
                             </select>
+                            -->
                              <!--送出-->   
                             <div class="btm-w"> 
                             <a href="javascript:check_data()" class="search-btm color-mov">送出</a>
-                               <input type="button" value="Submit" class="search-btm color-mov" OnClick="check_data();">                          
+                    <!--    <input type="button" value="Submit" class="search-btm color-mov" OnClick="check_data();">    -->                       
                                 
                             </div>
                               </Form>

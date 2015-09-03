@@ -27,8 +27,8 @@ String s_available;
     //out.println(s_available);
     
     num = "R"+R+"_"+"S"+S;
-    
-    
+    out.print(s_available);
+    /*
  	if( s_available.equals("Y")){
 		
  		  msg+= num +"已被訂位,請重新選位子";
@@ -40,7 +40,7 @@ String s_available;
  			out.print(msg);
  			
  		}
- 	
+ 	  */
 	}
 
 
