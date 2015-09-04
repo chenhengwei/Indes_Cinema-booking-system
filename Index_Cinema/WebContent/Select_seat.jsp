@@ -96,7 +96,7 @@
                 </div>
                <div id="Customer_info">
         <!-- ========================================================================================================== -->
-                <form id="selected-opt" name="selected-opt" action="Order_comfirm.jsp" method="post" onSubmit="return check_data_C();">
+                <form id="selected-opt" name="selected-opt" action="Ordered_Comfirm_Info_.jsp" method="post" onSubmit="return check_data_C();">
 				
 				<p>       Email:<input id="t1" type="text" name="seat" onblur="getData()" /> <img id="img1" width="50px" height="50px" /></p>
 				
@@ -111,8 +111,8 @@
 								<input type="hidden" name="seat" value="<%=request.getParameter("sessionTimeEnd")%>" id="<%=request.getParameter("sessionTimeEnd")%>">   
 								-->
 			<!-- 放映時間  -->	<input type="hidden" name="seat" value="<%=request.getParameter("sessionList")%>" id="<%=request.getParameter("sessionList")%>"> 
-								<input type="hidden" name="seat" value="" id="Money"> 
-								<input type="hidden" name="seat" value="" id="ordered_pp"> 
+			<!-- 訂票金額  -->	<input type="hidden" name="seat" value="" id="Money"> 
+			<!-- 訂位人數  -->	<input type="hidden" name="seat" value="" id="ordered_pp"> 
 								
 								
 				<p><input type="submit" name="submit" value="下訂單" class="checkout-button"/>
@@ -354,8 +354,8 @@
 					
 					if(check_Seat_available.trim() != "Y"){
 						
-						alert(check_Seat_available);
-						alert(num+": 座位 可以下訂");
+						//alert(check_Seat_available);
+						//alert(num+": 座位 可以下訂");
 						
 					}else{
 						alert(check_Seat_available);

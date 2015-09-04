@@ -62,8 +62,9 @@ if(f!=1){
 	out.println("Movie: "+new String(s1[2].getBytes( "ISO-8859-1"), "UTF-8") );
 	out.println("Date: "+s1[3]);
 	out.println("人數: "+s1[4]);
-	out.println("Start:"+s1[5]);
-	out.println("End:  "+s1[6]);
+	out.println("放映時間:"+s1[5]);
+	out.println("訂票總金額:  "+s1[6]);
+
 }
 
 %>
