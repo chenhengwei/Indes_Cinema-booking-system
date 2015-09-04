@@ -352,12 +352,17 @@
 					//alert(request.responseText);
 					var check_Seat_available = request.responseText;
 					
-					if(check_Seat_available =='Y'){
+					if(check_Seat_available.trim() != "Y"){
 						
+						alert(check_Seat_available);
+						alert(num+": 座位 可以下訂");
+						
+					}else{
+						alert(check_Seat_available);
+						alert(check_Seat_available.trim());
 						alert(num+": 座位 已被預約");
-						
-					}
-					else{alert(num+": 座位 可以下訂");}
+
+						}
 					
 					//var dup = document.getElementById("dup");
 					//dup.value = request.responseText.trim();
