@@ -156,7 +156,7 @@
 			
 	
 			    var arr = [<%=sold_seats%>];
-                var price = 10; //price
+                var price = 300; //price
                 var arr1 = ['1-1','1_2', '4_4', '4_5', '6_6', '6_7', '8_5', '8_6', '8_7', '8_8','10_1','10_2','10_3',];
                 var Order_PP = <%=request.getParameter("ticketQuantity")%>;
                 
@@ -365,8 +365,8 @@
 						//alert(num+": 座位 可以下訂");
 						
 					}else{
-						alert(check_Seat_available);
-						alert(check_Seat_available.trim());
+						//alert(check_Seat_available);
+						//alert(check_Seat_available.trim());
 						alert(num+": 座位 已被預約");
 
 						}
