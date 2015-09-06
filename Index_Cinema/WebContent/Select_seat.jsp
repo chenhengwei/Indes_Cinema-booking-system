@@ -97,7 +97,7 @@
                 </div>
                <div id="Customer_info">
         <!-- ========================================================================================================== -->
-                <form id="selected-opt" name="selected-opt" action="Ordered_Comfirm_Info_.jsp" method="post" onSubmit="return check_data_C();">
+                <form id="selected-opt" name="selected-opt" action="Order_Comfirm_New.jsp" method="post" onSubmit="return check_data_C();">
 						<div class="form-group">
 				<div>
 				<img src="https://upload.wikimedia.org/wikipedia/zh/3/3d/Minions_poster.jpg"id="img1" width="227.5px" height="320px" /></p>

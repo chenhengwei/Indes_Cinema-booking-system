@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="edu.pccu.Movie.*"%>
+    pageEncoding="UTF-8" import="edu.pccu.Movie.*,java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
@@ -8,7 +8,11 @@
 <meta name="description" content="Pimp your tables with CSS3" />
 <meta name="keywords" content="table, css3, style, beautiful, fancy, css"/>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
-<%!int f; %>
+<%!
+int f; 
+int session_ID;
+
+%>
 <%
 //客戶資訊傳入陣列
 String s1[] = request.getParameterValues("seat");
@@ -53,6 +57,8 @@ for(int i=0;i<=(s2.length-2);i=i+2){
     this.f=f;
 }
 %>
+
+
 <%
 if(f!=1){
 	out.print("訂單失敗 , 請回上一頁");
@@ -71,7 +77,6 @@ if(f!=1){
 }
 
 %>
-
 </head>
 
 <body>
