@@ -723,7 +723,7 @@
                 <!--連結-->
                 <div class="submenu">
                     <a href="http://www.ezding.com.tw/cc.do?action=online&amp;ezfrom=homestay" class="service">客服中心</a>
-                    <a href="E-mail_Phone_OrderList.jsp" class="order-history">訂購記錄</a>
+                    <a href="Email_Phone_Query.jsp" class="order-history">訂購記錄</a>
                 </div>
             </div>
         </div>

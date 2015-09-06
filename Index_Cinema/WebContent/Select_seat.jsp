@@ -14,7 +14,8 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="jquery.seat-charts.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/Select_Seats.css">
-
+ 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </head>
     <body>
         <div id="page">
@@ -78,7 +79,7 @@
                         </ul>
                     </div>
                 <div class="booking-details">
-
+					
                     <p>Movie: <span> <%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%></span></p>
                     <p>Time: <span><%=request.getParameter("todays_date")%></span></p>
                     <p>People: <%=request.getParameter("ticketQuantity")%></p>
@@ -91,18 +92,24 @@
                     <p>Tickets: <span id="counter">0</span></p>
                     <p>Total: <b>$<span id="total">0</span></b></p>
                     <br>
-                    <button class="checkout-button">BUY</button>
+                    <!--  <button class="checkout-button">BUY</button>-->
 
                 </div>
                <div id="Customer_info">
         <!-- ========================================================================================================== -->
                 <form id="selected-opt" name="selected-opt" action="Ordered_Comfirm_Info_.jsp" method="post" onSubmit="return check_data_C();">
-				
-				<p>       Email:<input id="t1" type="text" name="seat" onblur="getData()" /> <img id="img1" width="50px" height="50px" /></p>
-				
+						<div class="form-group">
+				<div>
+				<img src="https://upload.wikimedia.org/wikipedia/zh/3/3d/Minions_poster.jpg"id="img1" width="227.5px" height="320px" /></p>
+							
+				</div>
+					
+				<p> <strong>Email:</strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+								<input id="t1" type="text" name="seat" onblur="getData()" /> <img id="img1" width="10px" height="10px" /></p>
+							
 							    <input type="hidden" id="dup" value="1" />
-			    <p>Mobile Phone:<input id="t2" type="text" name="seat" /></p>
-				
+			    <p><strong>Mobile Phone:</strong><input id="t2" type="text" name="seat" /></p>
+				</div>
 			<!-- Movie   -->	<input type="hidden" name="seat" value="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>" id="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>"> 
 			<!-- Time    -->	<input type="hidden" name="seat" value="<%=request.getParameter("todays_date")%>" id="<%=request.getParameter("todays_date")%>"> 
 			<!-- People  -->	<input type="hidden" name="seat" value="<%=request.getParameter("ticketQuantity")%>" id="<%=request.getParameter("ticketQuantity")%>"> 
@@ -115,7 +122,7 @@
 			<!-- 訂位人數  -->	<input type="hidden" name="seat" value="" id="ordered_pp"> 
 								
 								
-				<p><input type="submit" name="submit" value="下訂單" class="checkout-button"/>
+				<p><input type="submit" name="submit" value="下訂單" class="btn btn-danger"/>
 				
 				</form>
 		 <!-- ========================================================================================================== -->		
