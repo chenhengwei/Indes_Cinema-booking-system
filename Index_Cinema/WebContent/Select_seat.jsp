@@ -80,18 +80,18 @@
                         </ul>
                     </div>
                 <div class="booking-details">
-					
-                    <p>Movie: <span> <%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%></span></p>
-                    <p>Time: <span><%=request.getParameter("todays_date")%></span></p>
-                    <p>People: <%=request.getParameter("ticketQuantity")%></p>
+					<br>
+                    <p>電影名稱: <span style="color:blue"> <%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%></span></p>
+                    <p>場次日期: <span style="color:blue"><%=request.getParameter("todays_date")%></span></p>
+                    <p>訂票人數: <span style="color:blue"><%=request.getParameter("ticketQuantity")%></span></p>
                     <%-- <p>起: <%=request.getParameter("sessionTimeStart")%> 迄: <%=request.getParameter("sessionTimeEnd")%></p> --%>
-                    <p>放映時間: <%=request.getParameter("sessionList")%> 編號: <%=request.getParameter("session_ID")%>
-                    <p>Seat: </p>
+                    <p>放映時間: <span style="color:blue"><%=request.getParameter("sessionList")%></span> 編號: <span style="color:blue"><%=request.getParameter("session_ID")%></span>
+                    <p>已選購的座位: </p>
                     <ul id="selected-seats">
                         <!-- 會自己新增 選擇位子 -->    
                     </ul>
-                    <p>Tickets: <span id="counter">0</span></p>
-                    <p>Total: <b>$<span id="total">0</span></b></p>
+                    <p>已選購票數: <span id="counter" style="color:blue">0</span></p>
+                    <p>購票總金額: <b>$<span id="total" style="color:red">0</span></b></p>
                     <br>
                     <!--  <button class="checkout-button">BUY</button>-->
 
@@ -101,15 +101,17 @@
                 <form id="selected-opt" name="selected-opt" action="Order_Comfirm_New.jsp" method="post" onSubmit="return check_data_C();">
 						<div class="form-group">
 				<div>
-				<img src="https://upload.wikimedia.org/wikipedia/zh/3/3d/Minions_poster.jpg"id="img1" width="227.5px" height="320px" /></p>
+				&nbsp&nbsp<img src="https://upload.wikimedia.org/wikipedia/zh/3/3d/Minions_poster.jpg"id="img1" width="227.5px" height="320px" /></p>
 							
 				</div>
-					
-				<p> <strong>Email:</strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<p>請輸入您的相關訂票資訊:</p>		
+				<p> <strong>Email信箱:</strong>
 								<input id="t1" type="text" name="seat" onblur="getData()" /> <img id="img1" width="10px" height="10px" /></p>
 							
 							    <input type="hidden" id="dup" value="1" />
-			    <p><strong>Mobile Phone:</strong><input id="t2" type="text" name="seat" /></p>
+			    <p><strong>手機&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</strong>
+			    				<input id="t2" type="text" name="seat" />
+			    				</p>
 				</div>
 			<!-- Movie   -->	<input type="hidden" name="seat" value="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>" id="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>"> 
 			<!-- Time    -->	<input type="hidden" name="seat" value="<%=request.getParameter("todays_date")%>" id="<%=request.getParameter("todays_date")%>"> 
@@ -123,7 +125,9 @@
 			<!-- 訂位人數  -->	<input type="hidden" name="seat" value="" id="ordered_pp"> 
 								
 								
-				<p><input type="submit" name="submit" value="下訂單" class="btn btn-danger"/></p>
+				<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="submit" name="submit" value="下訂單" class="btn btn-danger"/></p>
 				
 				</form>
 		 <!-- ========================================================================================================== -->		

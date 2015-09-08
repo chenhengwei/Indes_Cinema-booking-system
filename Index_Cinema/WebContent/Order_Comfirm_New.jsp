@@ -170,6 +170,7 @@
 				      </tr>
 				    </thead>
 				    </table>
+				    <p> <a href="Select_seat.jsp"><input type="button" name="submit" value="上一頁" class="btn btn-danger" /></a> </p>
 				    
 				 <%}else{ %>  
 				 <table id='sort' class='sort'>
@@ -254,7 +255,7 @@
 				    </tbody>
 				    </table>
 				    <%} %>
-				    <p> <a href="Select_seat.jsp"><input type="button" name="submit" value="上一頁" class="btn btn-danger" /></a> </p>
+				    <p> <a href="index.jsp"><input type="button" name="submit" value="回首頁" class="btn btn-danger" /></a> </p>
 
 					</div>
             </div>
