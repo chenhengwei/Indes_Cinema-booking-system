@@ -767,7 +767,7 @@
                             
                             
                             
-                            <Form name="movie_select" id="movie_select" action="Select_seat.jsp" method="POST">
+                            <Form name="movie_select" id="movie_select" action="New_select_seat_0908.jsp" method="POST">
                             
                             <select name="location" id="location" class="search-s1 icon-mov">
                                 <option value="">地區</option>

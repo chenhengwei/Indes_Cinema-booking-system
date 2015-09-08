@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <link href="images/killler.png" rel="shortcut icon">
+        <link href="images/killler.png" rel="shortcut icon">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width = device-width">
         <link rel="stylesheet" type="text/css" href="css/jquery.seat-charts.css">
@@ -17,13 +17,18 @@
         <link rel="stylesheet" type="text/css" href="css/Select_Seats.css">
  		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    	 <!--  -->
+    	 <link href="css/font-awesome/font-awesome.css" rel="stylesheet">
+		 <link href="css/Base3.css" rel="stylesheet">
+  		 <link href="css/style_S.css" rel="stylesheet">
+    	<!--  -->
     </head>
       <style>
     body {
       -webkit-font-smoothing: antialiased;
       font: normal 15px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
       color: #232525;
-      padding-top:70px;
+      padding-top:0px;
     }
 
     #slides {
@@ -174,7 +179,52 @@
     }
   </style>
   <!-- SlidesJS Required: -->
-    <body>
+ <body>
+ <!--  -->
+ <div id="wrapper">
+  
+  <div class="info-bar">
+    <div class="container">
+      <a class="icon fa fa-home" data-title="Back To Tutorial" href="index.jsp"></a>
+      <a class="icon fa fa-arrow-left" data-title="Pevious Demo - Stylish CSS Buttons" href="http://callmenick.com/tutorial-demos/stylish-css-buttons/"></a>
+      <!-- <a class="icon fa fa-arrow-right" data-title="Next Demo" href=""></a> -->
+      <a class="icon fa fa-download" data-title="Download Source" href="http://www.callmenick.com/tutorial-demos/input-text-styles/input-text-styles-source.zip"></a>
+      <a class="icon fa fa-folder-open" data-title="Tutorial Archives" href="http://www.callmenick.com/category/tutorials/"></a>
+    </div>
+  </div><!-- /.info-bar -->
+
+  <header>
+	<!-- /.branding -->
+    <div class="branding">
+      <div class="container clearfix">
+      <h1>  </h1>
+        <div class="logo">
+          <a href=""><img alt="" onerror="" src=""></a>
+        </div>
+
+        <div class="social">
+          <a class="fb" href="https://www.facebook.com/callmenick1" target="_blank">facebook</a>
+          <a class="twitter" href="https://twitter.com/nicksalloum_" target="_blank">twitter</a>
+          <a class="googleplus" href="https://plus.google.com/115555859876227750152/" target="_blank">google plus</a>
+          <a class="rss" href="http://feeds.feedburner.com/callmenick_" target="_blank">rss</a>
+          <a class="email" href="http://www.callmenick.com/subscribe/">email</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- /.branding -->
+
+    <div class="site-title">
+      <div class="container">
+        <h1>  </h1>
+      </div>
+    </div><!-- /.site-title -->
+
+  </header>
+ 
+ 
+ <!--  -->
+ <div id="main">
     <div class="container_slider">
     <div id="slides">
       <img src="images/e1.jpg" />
@@ -183,13 +233,9 @@
       <img src="images/e4.jpg" />
     </div>
   </div>
-  <!-- End SlidesJS Required -->
 
-  <!-- SlidesJS Required: Link to jquery.slides.js -->
   <script src="js/jquery.slides.min.js"></script>
-  <!-- End SlidesJS Required -->
 
-  <!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
   <script>
     $(function() {
       $('#slides').slidesjs({
@@ -205,7 +251,7 @@
     });
   </script>
   <!-- End SlidesJS Required -->
-    
+     
         <div id="page">
             <div class="section header clear">
 
@@ -635,10 +681,57 @@
                 
             </script>
         </div>
+       </div> 
         <!--footer-->
         <div class="footer">
-            <!-- <h1 class="theme-name"><strong>Goocode.net</strong><span>© 2013 - 2015 GOOCODE</span></h1> -->
-        </div>
+ <!-- <h1 class="theme-name"><strong>Goocode.net</strong><span>© 2013 - 2015 GOOCODE</span></h1> -->
+      <!--  -->
+
+<footer>
+    <div class="container">
+      <div class="clearfix">
+        <aside>
+        <span class="clearfix">電影</span>
+          <ul>
+                        <li><a href="http://www.ezding.com.tw/welcome.do">最新預告</a></li>
+                        <li><a href="#">評價評論</a></li>
+                        <li><a href="http://www.ezding.com.tw/welcome.do">即將上映電影</a></li>
+                        <li><a href="http://www.ezding.com.tw/welcome.do">訂票Top10</a></li>
+          </ul>
+        </aside>
+
+        <aside>
+        <span class="clearfix">各區影城訂票</span>
+          <ul>
+                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=aa328194963a11e092b89646992d17ea">in89豪華</a></li>
+                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=46efa950eafa11e38b12000bdb90dba4">樂聲</a></li>
+                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=79dd632cce7511e2ad6600215edc3df8">新民生</a></li>
+                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=40288eb0050f542401050f554e7e0674">威秀</a></li>
+                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=40288eb0050f542401050f55676b1bbc">美麗華大直</a></li>
+                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=40288eb0050f542401050f5566201ba4">華威</a></li>
+                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=2c28121ae2c711e292f7000bdb90dba4">屏東中影</a></li>
+                   
+          </ul>
+        </aside>
+        <aside class="logo">
+          <a href=""><img alt="" onerror="" src=""></a>
+        </aside>
+
+      
+        
+        
+      </div>
+     
+    </div>
+  </footer><!-- /footer -->
+  
+
+
+
+
+
+	<!--  -->
+		 </div>
 
 
 
