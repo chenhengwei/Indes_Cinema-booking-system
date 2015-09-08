@@ -16,9 +16,15 @@
                 }
                 .booking-details {
                    
-                    float:left;
+                    float:right;
                     position: relative;
                     width: 200px;
+                    height: 450px; 
+                }
+                .ordering-details{
+                    float:right;
+                    position: relative;
+                    width: 320px;
                     height: 450px; 
                 }
                 .booking-details h3 {

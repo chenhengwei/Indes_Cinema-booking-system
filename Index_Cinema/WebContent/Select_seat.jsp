@@ -18,32 +18,219 @@
  		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </head>
+      <style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      font: normal 15px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #232525;
+      padding-top:70px;
+    }
+
+    #slides {
+      display: none
+    }
+
+    #slides .slidesjs-navigation {
+      margin-top:5px;
+    }
+
+    a.slidesjs-next,
+    a.slidesjs-previous,
+    a.slidesjs-play,
+    a.slidesjs-stop {
+      background-image: url(img/btns-next-prev.png);
+      background-repeat: no-repeat;
+      display:block;
+      width:12px;
+      height:18px;
+      overflow: hidden;
+      text-indent: -9999px;
+      float: left;
+      margin-right:5px;
+    }
+
+    a.slidesjs-next {
+      margin-right:10px;
+      background-position: -12px 0;
+    }
+
+    a:hover.slidesjs-next {
+      background-position: -12px -18px;
+    }
+
+    a.slidesjs-previous {
+      background-position: 0 0;
+    }
+
+    a:hover.slidesjs-previous {
+      background-position: 0 -18px;
+    }
+
+    a.slidesjs-play {
+      width:15px;
+      background-position: -25px 0;
+    }
+
+    a:hover.slidesjs-play {
+      background-position: -25px -18px;
+    }
+
+    a.slidesjs-stop {
+      width:18px;
+      background-position: -41px 0;
+    }
+
+    a:hover.slidesjs-stop {
+      background-position: -41px -18px;
+    }
+
+    .slidesjs-pagination {
+      margin: 7px 0 0;
+      float: right;
+      list-style: none;
+    }
+
+    .slidesjs-pagination li {
+      float: left;
+      margin: 0 1px;
+    }
+
+    .slidesjs-pagination li a {
+      display: block;
+      width: 13px;
+      height: 0;
+      padding-top: 13px;
+      background-image: url(img/pagination.png);
+      background-position: 0 0;
+      float: left;
+      overflow: hidden;
+    }
+
+    .slidesjs-pagination li a.active,
+    .slidesjs-pagination li a:hover.active {
+      background-position: 0 -13px
+    }
+
+    .slidesjs-pagination li a:hover {
+      background-position: 0 -26px
+    }
+
+    #slides a:link,
+    #slides a:visited {
+      color: #333
+    }
+
+    #slides a:hover,
+    #slides a:active {
+      color: #9e2020
+    }
+
+    .navbar {
+      overflow: hidden
+    }
+  </style>
+  <!-- End SlidesJS Optional-->
+
+  <!-- SlidesJS Required: These styles are required if you'd like a responsive slideshow -->
+  <style>
+    #slides {
+      display: none
+    }
+
+    .container_slider {
+      margin: 0 auto
+    }
+
+    /* For tablets & smart phones */
+    @media (max-width: 767px) {
+      body {
+        padding-left:  20px;
+        padding-right: 30px;
+      }
+      .container_slider {
+        width: auto
+      }
+    }
+
+    /* For smartphones */
+    @media (max-width: 480px) {
+      .container_slider {
+        width: auto
+      }
+    }
+
+    /* For smaller displays like laptops */
+    @media (min-width: 768px) and (max-width: 979px) {
+      .container_slider {
+        width: 1024px
+      }
+    }
+
+    /* For larger displays */
+    @media (min-width: 1200px) {
+      .container_slider {
+        width: 720px
+      }
+    }
+  </style>
+  <!-- SlidesJS Required: -->
     <body>
+    <div class="container_slider">
+    <div id="slides">
+      <img src="images/e1.jpg" />
+      <img src="images/e2.jpg" />
+      <img src="images/e3.jpg" /> 
+      <img src="images/e4.jpg" />
+    </div>
+  </div>
+  <!-- End SlidesJS Required -->
+
+  <!-- SlidesJS Required: Link to jquery.slides.js -->
+  <script src="js/jquery.slides.min.js"></script>
+  <!-- End SlidesJS Required -->
+
+  <!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
+  <script>
+    $(function() {
+      $('#slides').slidesjs({
+        width: 940,
+        height: 350,
+        play: {
+          active: true,
+          auto: true,
+          interval: 4000,
+          swap: true
+        }
+      });
+    });
+  </script>
+  <!-- End SlidesJS Required -->
+    
         <div id="page">
             <div class="section header clear">
 
                 <div class="author-details">
-
-                    <script cf-hash="f9e31" type="text/javascript">
-                        /* <![CDATA[ */!function () {
-                            try {
-                                var t = "currentScript"in document ? document.currentScript : function () {
-                                    for (var t = document.getElementsByTagName("script"), e = t.length; e--; )
-                                        if (t[e].getAttribute("cf-hash"))
-                                            return t[e]
-                                }();
-                                if (t && t.previousSibling) {
-                                    var e, r, n, i, c = t.previousSibling, a = c.getAttribute("data-cfemail");
-                                    if (a) {
-                                        for (e = "", r = parseInt(a.substr(0, 2), 16), n = 2; a.length - n; n += 2)
-                                            i = parseInt(a.substr(n, 2), 16) ^ r, e += String.fromCharCode(i);
-                                        e = document.createTextNode(e), c.parentNode.replaceChild(e, c)
-                                    }
-                                }
-                            } catch (u) {
-                            }
-                        }();/* ]]> */
-                    </script>
+					<script cf-hash="f9e31" type="text/javascript">
+					                        /* <![CDATA[ */!function () {
+					                            try {
+					                                var t = "currentScript"in document ? document.currentScript : function () {
+					                                    for (var t = document.getElementsByTagName("script"), e = t.length; e--; )
+					                                        if (t[e].getAttribute("cf-hash"))
+					                                            return t[e]
+					                                }();
+					                                if (t && t.previousSibling) {
+					                                    var e, r, n, i, c = t.previousSibling, a = c.getAttribute("data-cfemail");
+					                                    if (a) {
+					                                        for (e = "", r = parseInt(a.substr(0, 2), 16), n = 2; a.length - n; n += 2)
+					                                            i = parseInt(a.substr(n, 2), 16) ^ r, e += String.fromCharCode(i);
+					                                        e = document.createTextNode(e), c.parentNode.replaceChild(e, c)
+					                                    }
+					                                }
+					                            } catch (u) {
+					                            }
+					                        }();/* ]]> */
+					                    </script>
+                   
                 </div>
             </div>
             <div class="section">
@@ -99,9 +286,9 @@
                <div id="Customer_info">
         <!-- ========================================================================================================== -->
                 <form id="selected-opt" name="selected-opt" action="Order_Comfirm_New.jsp" method="post" onSubmit="return check_data_C();">
-						<div class="form-group">
+				<div class="ordering-details" float:right>
 				<div>
-				&nbsp&nbsp<img src="https://upload.wikimedia.org/wikipedia/zh/3/3d/Minions_poster.jpg"id="img1" width="227.5px" height="320px" /></p>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="https://upload.wikimedia.org/wikipedia/zh/3/3d/Minions_poster.jpg"id="img1" width="227.5px" height="320px" /></p>
 							
 				</div>
 				<p>請輸入您的相關訂票資訊:</p>		
@@ -127,7 +314,11 @@
 								
 				<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				<input type="submit" name="submit" value="下訂單" class="btn btn-danger"/></p>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp
+				<input type="submit" name="submit" value="下訂單" class="btn btn-danger" /></p>
 				
 				</form>
 		 <!-- ========================================================================================================== -->		
