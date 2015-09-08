@@ -288,16 +288,17 @@
                 <form id="selected-opt" name="selected-opt" action="Order_Comfirm_New.jsp" method="post" onSubmit="return check_data_C();">
 				<div class="ordering-details" float:right>
 				<div>
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="https://upload.wikimedia.org/wikipedia/zh/3/3d/Minions_poster.jpg"id="img1" width="227.5px" height="320px" /></p>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="https://upload.wikimedia.org/wikipedia/zh/3/3d/Minions_poster.jpg"id="img_Movie" width="227.5px" height="320px" /></p>
 							
 				</div>
 				<p>請輸入您的相關訂票資訊:</p>		
 				<p> <strong>Email信箱:</strong>
-								<input id="t1" type="text" name="seat" onblur="getData()" /> <img id="img1" width="10px" height="10px" /></p>
+								<input id="t1" type="text" name="seat" onblur="getData()" />
+								<img id="img1" width="20px" height="20px" /></p>
 							
-							    <input type="hidden" id="dup" value="1" />
+							    <input type="hidden" id="dup" value="0" />
 			    <p><strong>手機&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</strong>
-			    				<input id="t2" type="text" name="seat" />
+			    				<input id="t2" type="text" name="seat" onblur="CheckData_EP()"/>
 			    				</p>
 				</div>
 			<!-- Movie   -->	<input type="hidden" name="seat" value="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>" id="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>"> 
@@ -586,6 +587,47 @@
 					//	}
 					// alert(dup.value);
 				}
+			}
+			
+			var request_info;
+			function CheckData_EP()
+			{
+				request_info = new XMLHttpRequest();
+				request_info.open("GET", "Info_check.jsp?phone=" +t2.value, true);
+				// 這行是設定 request 要去哪取資料，尚未開始取
+				// 第三個參數打 true 可以想成，利用另外一個執行緒處理 Request
+				// 第三個參數打 false 可以想成，利用這一個執行緒處理 Request
+				
+				request_info.onreadystatechange = CheckData_E_P;
+				// 當記憶體中的瀏覽器狀態改變時，呼叫 updateData 這個 function
+				
+				request_info.send(null); // 發動 request 去取資料
+				
+				
+			}
+			
+			function CheckData_E_P(){
+				 //alert(request_info.readyState);
+				if (request_info.readyState == 4){
+					
+					
+					   //alert(request.responseText);
+					  var dup = document.getElementById("dup");
+					  dup.value = request.responseText.trim();
+					  
+					  if (dup.value == "1")
+					   {
+					   var img1 = document.getElementById("img1");
+					   img1.src = "images/a1.png";
+					   }
+					  else
+					   {
+					   var img1 = document.getElementById("img1");
+					   img1.src = "images/a0.png";
+					   }
+					  // alert(dup.value);
+					 }
+			
 			}
  
                 
