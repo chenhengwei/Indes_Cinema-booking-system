@@ -148,7 +148,10 @@
 					<td><a href="ticket_cancel.jsp?id=<%=ticket.getT_ticket_no()%>"
 						onclick=return(confirm('確定取消訂單嗎？'))>取消</a></td>
 				</tr>
-				<%}}%>
+				<%
+					}
+				}
+				%>
 				      </tbody>
 				    </table>
   </div>
