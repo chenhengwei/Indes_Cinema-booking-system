@@ -318,7 +318,8 @@
 				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 				&nbsp&nbsp&nbsp
-				<input type="submit" name="submit" value="下訂單" class="btn btn-danger" /></p>
+				<input type="submit" name="submit" value="下訂單" class="btn btn-danger" />
+				</p>
 				
 				</form>
 		 <!-- ========================================================================================================== -->		
@@ -499,12 +500,15 @@
                       flag = false;
                    }
                  // ---------- Check ----------
-				/*
-                   if(  ticketQuantity != SC_pp ){
+				
+                   if('<%=request.getParameter("ticketQuantity")%>'!= SC_pp ){
                        message = message + '訂位人數不符合\n';
                        flag = false;
-                   */
-                   
+                   }
+                   if( check_Seat_available.trim()== 'Y'){
+                           message = message + num+': 座位 已被預約",請重新選購\n';
+                           flag = false;
+                        }
                    if(!flag) {
                       alert(message);
                    }
@@ -553,7 +557,7 @@
 					
 				
 					//alert(request.responseText);
-					var check_Seat_available = request.responseText;
+					 check_Seat_available = request.responseText;
 					
 					if(check_Seat_available.trim() != "Y"){
 						
