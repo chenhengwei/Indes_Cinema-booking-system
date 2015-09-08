@@ -6,11 +6,12 @@
   <!-- title and meta -->
   <meta charset="utf-8">
   <meta content="width=device-width,initial-scale=1.0" name="viewport">
-  <meta content="" name="Various CSS input text styles that are great for giving forms on your site a more welcoming and appealing look, done with straight up CSS.">
+  <meta content="" name="  ">
 
-  <title>Various CSS Input Text Styles</title>
+  <title>訂票資訊</title>
 
   <!-- css -->
+  <link href="images/killler.png" rel="shortcut icon">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
   <link href="css/font-awesome/font-awesome.css" rel="stylesheet">
@@ -160,15 +161,18 @@
         <h1>訂票資訊</h1>
        
 		 </section>
-		  
-				<table id='sort' class='sort'>
+
 				<%if(f!=1){%>
+				<table id='sort' class='sort'>
 				    <thead>
 				      <tr>
 				        <th scope="col" abbr="Starter" class="text-danger" ><h1>訂單失敗 , 請重新訂票</h1></th>
 				      </tr>
 				    </thead>
+				    </table>
+				    
 				 <%}else{ %>  
+				 <table id='sort' class='sort'>
 				     <thead>
 				      <tr>
 				        <th></th>
@@ -248,9 +252,12 @@
 				
 				      </tr>
 				    </tbody>
-				    <%} %>
 				    </table>
-  </div>
+				    <%} %>
+				    <p> <a href="Select_seat.jsp"><input type="button" name="submit" value="上一頁" class="btn btn-danger" /></a> </p>
+
+					</div>
+            </div>
 
     </div>
     

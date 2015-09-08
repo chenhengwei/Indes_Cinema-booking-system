@@ -6,11 +6,12 @@
   <!-- title and meta -->
   <meta charset="utf-8">
   <meta content="width=device-width,initial-scale=1.0" name="viewport">
-  <meta content="" name="Various CSS input text styles that are great for giving forms on your site a more welcoming and appealing look, done with straight up CSS.">
+  <meta content="" name="查詢">
 
-  <title>Various CSS Input Text Styles</title>
+  <title>查詢</title>
 
   <!-- css -->
+  <link href="images/killler.png" rel="shortcut icon">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
   <link href="css/font-awesome/font-awesome.css" rel="stylesheet">

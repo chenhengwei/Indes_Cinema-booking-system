@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <link href="images/killler.png" rel="shortcut icon">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width = device-width">
         <link rel="stylesheet" type="text/css" href="css/jquery.seat-charts.css">
@@ -122,7 +123,7 @@
 			<!-- 訂位人數  -->	<input type="hidden" name="seat" value="" id="ordered_pp"> 
 								
 								
-				<p><input type="submit" name="submit" value="下訂單" class="btn btn-danger"/>
+				<p><input type="submit" name="submit" value="下訂單" class="btn btn-danger"/></p>
 				
 				</form>
 		 <!-- ========================================================================================================== -->		
@@ -361,12 +362,12 @@
 					
 					if(check_Seat_available.trim() != "Y"){
 						
-						alert(check_Seat_available);
+						//alert(check_Seat_available);
 						//alert(num+": 座位 可以下訂");
 						
 					}else{
-						alert(check_Seat_available);
-						alert(check_Seat_available.trim());
+						//alert(check_Seat_available);
+						//alert(check_Seat_available.trim());
 						alert(num+": 座位 已被預約");
 
 						}

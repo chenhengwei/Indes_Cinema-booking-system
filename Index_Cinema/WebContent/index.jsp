@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
-    Created on : Aug 25, 2015, 11:43:52 PM
-    Author     : chenwesley
+    Created on : Sep 08, 2015, 11:43:52 PM
+    Author     : Chen Heng Wei
 --%>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
         <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>電影訂票平台</title>
-        <link href="http://img.sj33.cn/uploads/allimg/201206/20120611093440396.png" rel="shortcut icon">
+        <link href="images/killler.png" rel="shortcut icon">
         <link href="../css/jquery-ui-1.11.2.min.css" rel="stylesheet" type="text/css">
         <link href="css/reset.css" rel="stylesheet" type="text/css">
         <link href="css/header_141226.css" rel="stylesheet" type="text/css">
@@ -23,9 +23,7 @@
         <script type="text/javascript" src="../js/jquery-ui-1.11.2.min.js"></script>
         <link href="css/CalendarControl.css" rel="stylesheet" type="text/css">
 		<script src="js/CalendarControl.js" language="javascript"></script>
-     
-        
-        
+
         <script type="text/javascript">
             
     // common
@@ -689,7 +687,7 @@
                 <div class="menu">
                     
                     <ul>
-                        <li><a href="#">電影連結</a></li>
+                         <li><a href="#">刺客影城</a></li> <img src="images/killler.png" width="35px" height="35px" /> 
                     </ul>
                     
                 </div>
