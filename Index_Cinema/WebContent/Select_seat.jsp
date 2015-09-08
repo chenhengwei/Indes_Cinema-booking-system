@@ -293,12 +293,12 @@
 				</div>
 				<p>請輸入您的相關訂票資訊:</p>		
 				<p> <strong>Email信箱:</strong>
-								<input id="t1" type="text" name="seat" onblur="getData()" />
-								<img id="img1" width="20px" height="20px" /></p>
+								<input id="t1" type="text" name="seat" onblur="getData();" />
+								</p>
 							
-							    <input type="hidden" id="dup" value="0" />
+							    <input type="hidden" id="dup" value="1" />
 			    <p><strong>手機&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</strong>
-			    				<input id="t2" type="text" name="seat" onblur="CheckData_EP()"/>
+			    				<input id="t2" type="text" name="seat" onblur="CheckData_EP();"/>&nbsp&nbsp<img src ="images/a2.jpg" id="img1" width="20px" height="20px" />
 			    				</p>
 				</div>
 			<!-- Movie   -->	<input type="hidden" name="seat" value="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>" id="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>"> 
@@ -591,9 +591,11 @@
 			
 			var request_info;
 			function CheckData_EP()
-			{
+			{  //alert("ssss");
+				var t1 = document.getElementById("t1");
+				var t2 = document.getElementById("t2");
 				request_info = new XMLHttpRequest();
-				request_info.open("GET", "Info_check.jsp?phone=" +t2.value, true);
+				request_info.open("GET", "Info_check.jsp?mail="+t1.value+"&phone="+t2.value,true);
 				// 這行是設定 request 要去哪取資料，尚未開始取
 				// 第三個參數打 true 可以想成，利用另外一個執行緒處理 Request
 				// 第三個參數打 false 可以想成，利用這一個執行緒處理 Request
@@ -613,17 +615,17 @@
 					
 					   //alert(request.responseText);
 					  var dup = document.getElementById("dup");
-					  dup.value = request.responseText.trim();
+					  dup.value = request_info.responseText.trim();
 					  
 					  if (dup.value == "1")
 					   {
 					   var img1 = document.getElementById("img1");
-					   img1.src = "images/a1.png";
+					   img1.src = "images/a0.png";
 					   }
 					  else
 					   {
 					   var img1 = document.getElementById("img1");
-					   img1.src = "images/a0.png";
+					   img1.src = "images/a1.png";
 					   }
 					  // alert(dup.value);
 					 }
