@@ -21,8 +21,8 @@
         <link href="css/lightbox.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
         <script type="text/javascript" src="../js/jquery-ui-1.11.2.min.js"></script>
-        <link href="CalendarControl.css" rel="stylesheet" type="text/css">
-		<script src="CalendarControl.js" language="javascript"></script>
+        <link href="css/CalendarControl.css" rel="stylesheet" type="text/css">
+		<script src="js/CalendarControl.js" language="javascript"></script>
      
         
         

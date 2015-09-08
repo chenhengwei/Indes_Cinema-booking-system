@@ -10,9 +10,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width = device-width">
-        <link rel="stylesheet" type="text/css" href="jquery.seat-charts.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.seat-charts.css">
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="jquery.seat-charts.min.js"></script>
+        <script type="text/javascript" src="js/jquery.seat-charts.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/Select_Seats.css">
  		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -361,12 +361,12 @@
 					
 					if(check_Seat_available.trim() != "Y"){
 						
-						//alert(check_Seat_available);
+						alert(check_Seat_available);
 						//alert(num+": 座位 可以下訂");
 						
 					}else{
-						//alert(check_Seat_available);
-						//alert(check_Seat_available.trim());
+						alert(check_Seat_available);
+						alert(check_Seat_available.trim());
 						alert(num+": 座位 已被預約");
 
 						}
