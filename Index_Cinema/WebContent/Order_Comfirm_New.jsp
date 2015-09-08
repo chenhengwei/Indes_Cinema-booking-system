@@ -60,9 +60,12 @@
 			for(int i=0;i<=(s2.length-2);i=i+2){
 				
 				int f;
-			    Seats ordered_s = new Seats("A",s2[i],s2[i+1],"Y",auto_ticket_no,"Y");
+			    //Seats ordered_s = new Seats("A",s2[i],s2[i+1],"Y",auto_ticket_no,"Y");
+			    	Seats ordered_New = new Seats("A",s2[i],s2[i+1],"Y",auto_ticket_no,"Y");
+			    
 			    SeatDAO Seat_dao = new SeatsDAODBImpl();
-			    f = Seat_dao.add_Seats(ordered_s );
+			     f = Seat_dao.update_Seats(ordered_New);
+			    //f = Seat_dao.add_Seats(ordered_s );
 			    //out.print(f);
 			    this.f=f;
 			}
