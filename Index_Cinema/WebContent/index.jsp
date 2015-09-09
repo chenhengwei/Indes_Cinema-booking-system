@@ -23,6 +23,7 @@
         <script type="text/javascript" src="../js/jquery-ui-1.11.2.min.js"></script>
         <link href="css/CalendarControl.css" rel="stylesheet" type="text/css">
 		<script src="js/CalendarControl.js" language="javascript"></script>
+		
 
         <script type="text/javascript">
             
@@ -767,7 +768,7 @@
                             
                             
                             
-                            <Form name="movie_select" id="movie_select" action="New_select_seat_0908.jsp" method="POST">
+                            <Form name="movie_select" id="movie_select" action="New_select_seat_0909.jsp" method="POST">
                             
                             <select name="location" id="location" class="search-s1 icon-mov">
                                 <option value="">地區</option>
