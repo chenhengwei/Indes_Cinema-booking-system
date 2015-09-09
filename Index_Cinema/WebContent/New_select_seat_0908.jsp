@@ -12,6 +12,7 @@
         <link href="images/killler.png" rel="shortcut icon">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width = device-width">
+        <link href="css/select_seat_adv.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="css/jquery.seat-charts.css">
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="js/jquery.seat-charts.min.js"></script>
@@ -24,161 +25,7 @@
   		 <link href="css/style_S.css" rel="stylesheet">
     	<!--  -->
     </head>
-      <style>
-    body {
-      -webkit-font-smoothing: antialiased;
-      font: normal 15px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: #232525;
-      padding-top:0px;
-    }
 
-    #slides {
-      display: none
-    }
-
-    #slides .slidesjs-navigation {
-      margin-top:5px;
-    }
-
-    a.slidesjs-next,
-    a.slidesjs-previous,
-    a.slidesjs-play,
-    a.slidesjs-stop {
-      background-image: url(img/btns-next-prev.png);
-      background-repeat: no-repeat;
-      display:block;
-      width:12px;
-      height:18px;
-      overflow: hidden;
-      text-indent: -9999px;
-      float: left;
-      margin-right:5px;
-    }
-
-    a.slidesjs-next {
-      margin-right:10px;
-      background-position: -12px 0;
-    }
-
-    a:hover.slidesjs-next {
-      background-position: -12px -18px;
-    }
-
-    a.slidesjs-previous {
-      background-position: 0 0;
-    }
-
-    a:hover.slidesjs-previous {
-      background-position: 0 -18px;
-    }
-
-    a.slidesjs-play {
-      width:15px;
-      background-position: -25px 0;
-    }
-
-    a:hover.slidesjs-play {
-      background-position: -25px -18px;
-    }
-
-    a.slidesjs-stop {
-      width:18px;
-      background-position: -41px 0;
-    }
-
-    a:hover.slidesjs-stop {
-      background-position: -41px -18px;
-    }
-
-    .slidesjs-pagination {
-      margin: 7px 0 0;
-      float: right;
-      list-style: none;
-    }
-
-    .slidesjs-pagination li {
-      float: left;
-      margin: 0 1px;
-    }
-
-    .slidesjs-pagination li a {
-      display: block;
-      width: 13px;
-      height: 0;
-      padding-top: 13px;
-      background-image: url(img/pagination.png);
-      background-position: 0 0;
-      float: left;
-      overflow: hidden;
-    }
-
-    .slidesjs-pagination li a.active,
-    .slidesjs-pagination li a:hover.active {
-      background-position: 0 -13px
-    }
-
-    .slidesjs-pagination li a:hover {
-      background-position: 0 -26px
-    }
-
-    #slides a:link,
-    #slides a:visited {
-      color: #333
-    }
-
-    #slides a:hover,
-    #slides a:active {
-      color: #9e2020
-    }
-
-    .navbar {
-      overflow: hidden
-    }
-  </style>
-  <!-- End SlidesJS Optional-->
-
-  <!-- SlidesJS Required: These styles are required if you'd like a responsive slideshow -->
-  <style>
-    #slides {
-      display: none
-    }
-
-    .container_slider {
-      margin: 0 auto
-    }
-
-    /* For tablets & smart phones */
-    @media (max-width: 767px) {
-      body {
-        padding-left:  20px;
-        padding-right: 30px;
-      }
-      .container_slider {
-        width: auto
-      }
-    }
-
-    /* For smartphones */
-    @media (max-width: 480px) {
-      .container_slider {
-        width: auto
-      }
-    }
-
-    /* For smaller displays like laptops */
-    @media (min-width: 768px) and (max-width: 979px) {
-      .container_slider {
-        width: 1024px
-      }
-    }
-
-    /* For larger displays */
-    @media (min-width: 1200px) {
-      .container_slider {
-        width: 720px
-      }
-    }
-  </style>
   <!-- SlidesJS Required: -->
  <body>
  <!--  -->
@@ -186,11 +33,10 @@
   
   <div class="info-bar">
     <div class="container">
-      <a class="icon fa fa-home" data-title="Back To Tutorial" href="index.jsp"></a>
-      <a class="icon fa fa-arrow-left" data-title="Pevious Demo - Stylish CSS Buttons" href="http://callmenick.com/tutorial-demos/stylish-css-buttons/"></a>
-      <!-- <a class="icon fa fa-arrow-right" data-title="Next Demo" href=""></a> -->
-      <a class="icon fa fa-download" data-title="Download Source" href="http://www.callmenick.com/tutorial-demos/input-text-styles/input-text-styles-source.zip"></a>
-      <a class="icon fa fa-folder-open" data-title="Tutorial Archives" href="http://www.callmenick.com/category/tutorials/"></a>
+      <a class="icon fa fa-home"  href="index.jsp"></a>
+      <!-- <a class="icon fa fa-arrow-left" href=""></a>
+           <a class="icon fa fa-arrow-right" data-title="Next Demo" href=""></a> -->
+   
     </div>
   </div><!-- /.info-bar -->
 
@@ -255,12 +101,68 @@
      
         <div id="page">
             <div class="section header clear">
-
+			
                 <div class="author-details">
+                
+                
+                
 					<script cf-hash="f9e31" type="text/javascript">
-					     
-					   
+					 //-------------------------    
+// 					 function myrefresh()
+// 					 {
+// 					      window.location.reload();
+// 					 }
+// 					 setTimeout('myrefresh()',120000);
+					//------------------------------
 					
+					//-------------------------------
+									
+// 					countdown("countdown", 10, 0);
+// 				    function countdown(element, minutes, seconds) {
+// 				        // 設定時間倒數
+// 				        var time = minutes * 60 + seconds;
+// 				        var interval = setInterval(function () {
+// 				            var el = document.getElementById(element);
+				
+// 				            // 時間為0則轉頁面
+// 				            if (time == 0) {
+// 				                window.location = "../index.aspx";
+// 				                clearInterval(interval);
+// 				                return;
+// 				            } 
+				
+// 				            //分和秒的顯示設定
+// 				            var minutes = Math.floor(time / 60);
+// 				            if (minutes < 10) minutes = "0" + minutes;
+// 				            var seconds = time % 60;
+// 				            if (seconds < 10) seconds = "0" + seconds;
+// 				            var text = minutes + ":" + seconds;
+// 				            el.innerHTML = text;
+// 				            time--;
+// 				        }, 1000);
+// 				    }
+									
+					
+				    var count=120;
+
+				    var counter=setInterval(timer, 1000); //1000 will  run it every 1 second
+
+				    function timer()
+				    {
+				      count=count-1;
+				      if (count <= 0)
+				      {
+				         clearInterval(counter);
+				         return;
+				      }
+                      if (count == 1){
+                    	  
+                    	  window.location.reload();
+                      }
+				     document.getElementById("timer").innerHTML=count + " secs"; // watch for spelling
+				    }
+
+					//-------------------------------
 					
 					
 					                        /* <![CDATA[ */!function () {
@@ -297,7 +199,7 @@
                 <div id="seat-map" class="seatCharts-container" tabindex="0" aria-activedescendant="1_0">
 
                     <div class="front">SCREEN</div>
-                    <!-- 會自己新增出列表 -->    
+                    <!-- 會自己新增出列表 -->  
                		 </div>
                		 
 					<div id="legend" class="seatCharts-legend">
@@ -319,7 +221,9 @@
                         </ul>
                     </div>
                 <div class="booking-details">
+                
 					<br>
+					<P>頁面重載入時間: <span id="timer" style="color:green"></span><P>
                     <p>電影名稱: <span style="color:blue"> <%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%></span></p>
                     <p>場次日期: <span style="color:blue"><%=request.getParameter("todays_date")%></span></p>
                     <p>訂票人數: <span style="color:blue"><%=request.getParameter("ticketQuantity")%></span></p>
@@ -343,14 +247,14 @@
 				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="https://upload.wikimedia.org/wikipedia/zh/3/3d/Minions_poster.jpg"id="img_Movie" width="227.5px" height="320px" /></p>
 							
 				</div>
-				<p>請輸入您的相關訂票資訊:</p>		
+				<p><strong>請輸入您的相關訂票資訊:</strong></p>		
 				<p> <strong>Email信箱:</strong>
 								<input id="t1" type="text" name="seat" onblur="getData();" />
 								</p>
 							
 							    <input type="hidden" id="dup" value="1" />
 			    <p><strong>手機&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</strong>
-			    				<input id="t2" type="text" name="seat" onblur="CheckData_EP();"/>&nbsp<img src ="images/a2.jpg" id="img1" width="20px" height="20px" />
+			    				<input id="t2" type="text" name="seat" onblur="CheckData_EP();"/>&nbsp<img src ="images/a2.png" id="img1" width="20px" height="20px" />
 			    				</p>
 				</div>
 			<!-- Movie   -->	<input type="hidden" name="seat" value="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>" id="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>"> 
@@ -364,10 +268,13 @@
 			<!-- 訂票金額  -->	<input type="hidden" name="seat" value="" id="Money"> 
 			<!-- 訂位人數  -->	<input type="hidden" name="seat" value="" id="ordered_pp"> 
 								
+				 
 								
 				<p>
-				<%for(int k=0;k<95;k++){out.print("&nbsp");} %>
-				<input type="submit" name="submit" value="下訂單" class="btn btn-danger" />
+				
+				<%for(int k=0;k<105;k++){out.print("&nbsp");} %>
+				<input type="button" name="back" value="回選單" class="btn btn-danger" align="float:right"/> 
+				&nbsp&nbsp&nbsp&nbsp<input type="submit" name="submit" value="下訂單" class="btn btn-danger" /><a href="index.html">
 				</p>
 				
 				</form>

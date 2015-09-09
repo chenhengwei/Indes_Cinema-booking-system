@@ -34,7 +34,7 @@
                 .booking-details p{
                     line-height:26px; 
                     font-size:16px; 
-                    color:#999
+                    color:#000000
                 }
                 .booking-details p span{color:#666}
                 div.seatCharts-cell{
@@ -121,8 +121,8 @@
                 }
                 #selected-seats li{
                     float:left; 
-                    width:72px; 
-                    height:26px; 
+                    width:60px; 
+                    height:25px; 
                     line-height:26px; 
                     border:1px solid #d3d3d3; 
                     background:#f7f7f7; 
