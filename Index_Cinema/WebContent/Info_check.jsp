@@ -3,7 +3,7 @@
     <%
     String p = request.getParameter("phone");
     String m = request.getParameter("mail");
-    if (p == null || p == "" || m == null || m == "")
+    if (p == null || p.equals("")|| m == null || m.equals(""))
     {
     	out.print("0");	// 0 代表沒有重複可以新增
     }

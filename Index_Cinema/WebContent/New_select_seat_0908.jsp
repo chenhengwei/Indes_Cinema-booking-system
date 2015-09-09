@@ -530,14 +530,25 @@
                 //=====================================================================//  
                 function check_data_C()
                 {
-            
+                
                    var flag = true;
                    var message = '' ;
                    // ---------- Check ----------
                    if(SC_pp == null || SC_pp ==''){
+                	 message = message + '訂位人數不符合\n';
                   	 flag = false;
-                   }
-    			
+                   }else{
+                	   
+                    if('<%=request.getParameter("ticketQuantity")%>' != SC_pp ){
+                        message = message + '訂位人數不符合\n';
+                        flag = false;}
+ 				
+ 				  // ---------- Check ----------
+                    if( check_Seat_available.trim()== 'Y'){
+                            message = message + num+': 座位 已被預約",請重新選購\n';
+                            flag = false;}
+ 				}
+
                    // ---------- Check ----------
                    var t1 = document.getElementById('t1');
                    if(t1.value==''){
@@ -553,17 +564,7 @@
                    // ---------- Check ----------
 
                  //alert(SC_pp);
-				if(SC_pp != null){
-                   if('<%=request.getParameter("ticketQuantity")%>' != SC_pp ){
-                       message = message + '訂位人數不符合\n';
-                       flag = false;
-                   }
-				}
-				  // ---------- Check ----------
-                   if( check_Seat_available.trim()== 'Y'){
-                           message = message + num+': 座位 已被預約",請重新選購\n';
-                           flag = false;
-                        }
+
                    // ---------- Check ----------
                    if(!flag) {
                       alert(message);
