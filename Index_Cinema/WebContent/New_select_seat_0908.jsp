@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+    
         <link href="images/killler.png" rel="shortcut icon">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width = device-width">
@@ -257,6 +258,11 @@
 
                 <div class="author-details">
 					<script cf-hash="f9e31" type="text/javascript">
+					     
+					   
+					
+					
+					
 					                        /* <![CDATA[ */!function () {
 					                            try {
 					                                var t = "currentScript"in document ? document.currentScript : function () {
@@ -359,12 +365,8 @@
 			<!-- 訂位人數  -->	<input type="hidden" name="seat" value="" id="ordered_pp"> 
 								
 								
-				<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				&nbsp&nbsp&nbsp
+				<p>
+				<%for(int k=0;k<95;k++){out.print("&nbsp");} %>
 				<input type="submit" name="submit" value="下訂單" class="btn btn-danger" />
 				</p>
 				
@@ -546,7 +548,9 @@
  				  // ---------- Check ----------
                     if( check_Seat_available.trim()== 'Y'){
                             message = message + num+': 座位 已被預約",請重新選購\n';
-                            flag = false;}
+                            flag = false;
+                            window.location.reload();      
+                    }
  				}
 
                    // ---------- Check ----------
