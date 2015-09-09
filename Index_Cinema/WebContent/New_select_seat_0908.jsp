@@ -6,9 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" import="edu.pccu.Movie.*,java.util.*"%>
 <!DOCTYPE html>
-  				<%//String tmp=request.getParameter("mgId");
-  				//if( tmp == null)
-                //{response.sendRedirect("index.jsp");} %>
+				<%request.setCharacterEncoding("utf-8"); %>
+  				<%String tmp=request.getParameter("mgId");
+  				if(tmp == null)
+                {response.sendRedirect("index.jsp");} %>
 <html>
 
     <head>
@@ -232,7 +233,7 @@
 					<br>
 					
 					<P>頁面重載入時間: <span id="timer" style="color:green"></span><P>
-                    <p>電影名稱: <span style="color:blue"> <%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%></span></p>
+                    <p>電影名稱: <span style="color:blue"> <%=request.getParameter("mgId")%></span></p>
                     <p>場次日期: <span style="color:blue"> <%=request.getParameter("todays_date")%> </span></p>
                     <p>訂票人數: <span style="color:blue"> <%=request.getParameter("ticketQuantity")%> </span></p>
                     <%-- <p>起: <%=request.getParameter("sessionTimeStart")%> 迄: <%=request.getParameter("sessionTimeEnd")%></p> --%>
@@ -265,7 +266,7 @@
 			    				<input id="t2" type="text" name="seat" onblur="CheckData_EP();"/>&nbsp<img src ="images/a2.png" id="img1" width="20px" height="20px" />
 			    				</p>
 				</div>
-			<!-- Movie   -->	<input type="hidden" name="seat" value="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>" id="<%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%>"> 
+			<!-- Movie   -->	<input type="hidden" name="seat" value="<%=request.getParameter("mgId")%>" id="<%=request.getParameter("mgId")%>"> 
 			<!-- Time    -->	<input type="hidden" name="seat" value="<%=request.getParameter("todays_date")%>" id="<%=request.getParameter("todays_date")%>"> 
 			<!-- People  -->	<input type="hidden" name="seat" value="<%=request.getParameter("ticketQuantity")%>" id="<%=request.getParameter("ticketQuantity")%>"> 
 								<!--    
