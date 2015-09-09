@@ -6,7 +6,11 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" import="edu.pccu.Movie.*,java.util.*"%>
 <!DOCTYPE html>
+  				<%//String tmp=request.getParameter("mgId");
+  				//if( tmp == null)
+                //{response.sendRedirect("index.jsp");} %>
 <html>
+
     <head>
     
         <link href="images/killler.png" rel="shortcut icon">
@@ -39,9 +43,11 @@
    
     </div>
   </div><!-- /.info-bar -->
+</div>
 
   <header>
-	<!-- /.branding -->
+   <!--
+	 /.branding 
     <div class="branding">
       <div class="container clearfix">
       <h1>  </h1>
@@ -59,14 +65,15 @@
       </div>
     </div>
 
-    <!-- /.branding -->
+    /.branding 
 
     <div class="site-title">
       <div class="container">
         <h1>  </h1>
       </div>
-    </div><!-- /.site-title -->
+    </div><!-- /.site-title 
 
+  -->
   </header>
  
  
@@ -162,7 +169,7 @@
 				     document.getElementById("timer").innerHTML=count + " secs"; // watch for spelling
 				    }
 
-					//-------------------------------
+					 //-------------------------------
 					
 					
 					                        /* <![CDATA[ */!function () {
@@ -221,14 +228,15 @@
                         </ul>
                     </div>
                 <div class="booking-details">
-                
+
 					<br>
+					
 					<P>頁面重載入時間: <span id="timer" style="color:green"></span><P>
                     <p>電影名稱: <span style="color:blue"> <%=new String(request.getParameter("mgId").getBytes( "ISO-8859-1"), "UTF-8")%></span></p>
-                    <p>場次日期: <span style="color:blue"><%=request.getParameter("todays_date")%></span></p>
-                    <p>訂票人數: <span style="color:blue"><%=request.getParameter("ticketQuantity")%></span></p>
+                    <p>場次日期: <span style="color:blue"> <%=request.getParameter("todays_date")%> </span></p>
+                    <p>訂票人數: <span style="color:blue"> <%=request.getParameter("ticketQuantity")%> </span></p>
                     <%-- <p>起: <%=request.getParameter("sessionTimeStart")%> 迄: <%=request.getParameter("sessionTimeEnd")%></p> --%>
-                    <p>放映時間: <span style="color:blue"><%=request.getParameter("sessionList")%></span> 編號: <span style="color:blue"><%=request.getParameter("session_ID")%></span>
+                    <p>放映時間: <span style="color:blue"> <%=request.getParameter("sessionList")%> </span> 編號: <span style="color:blue"> <%=request.getParameter("session_ID")%> </span>
                     <p>已選購的座位: </p>
                     <ul id="selected-seats">
                         <!-- 會自己新增 選擇位子 -->    
