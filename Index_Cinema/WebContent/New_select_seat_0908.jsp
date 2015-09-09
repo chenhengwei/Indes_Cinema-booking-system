@@ -272,7 +272,7 @@
 								
 				<p>
 				
-				<%for(int k=0;k<105;k++){out.print("&nbsp");} %>
+				<%for(int k=0;k<95;k++){out.print("&nbsp");} %>
 				<input type="button" name="back" value="回選單" class="btn btn-danger" align="float:right"/> 
 				&nbsp&nbsp&nbsp&nbsp<input type="submit" name="submit" value="下訂單" class="btn btn-danger" /><a href="index.html">
 				</p>
@@ -614,7 +614,7 @@
     <div class="container">
       <div class="clearfix">
         <aside>
-        <span class="clearfix">電影</span>
+        <span class="clearfix"><strong>電影</strong></span>
           <ul>
                         <li><a href="http://www.ezding.com.tw/welcome.do">最新預告</a></li>
                         <li><a href="#">評價評論</a></li>
@@ -624,7 +624,7 @@
         </aside>
 
         <aside>
-        <span class="clearfix">各區影城訂票</span>
+        <span style="color:white"><strong>各區影城訂票</strong></span>
           <ul>
                         <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=aa328194963a11e092b89646992d17ea">in89豪華</a></li>
                         <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=46efa950eafa11e38b12000bdb90dba4">樂聲</a></li>
