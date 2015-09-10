@@ -16,7 +16,7 @@
   <link href='http://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
   <link href="css/font-awesome/font-awesome.css" rel="stylesheet">
  <link href="css/Base2.css" rel="stylesheet">
-  <link href="css/style_S.css" rel="stylesheet">
+  <link href="css/style_S_Q.css" rel="stylesheet">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -30,10 +30,9 @@
   <div class="info-bar">
     <div class="container">
       <a class="icon fa fa-home" data-title="Back To Tutorial" href="index.jsp"></a>
-      <a class="icon fa fa-arrow-left" data-title="Pevious Demo - Stylish CSS Buttons" href="http://callmenick.com/tutorial-demos/stylish-css-buttons/"></a>
+
       <!-- <a class="icon fa fa-arrow-right" data-title="Next Demo" href=""></a> -->
-      <a class="icon fa fa-download" data-title="Download Source" href="http://www.callmenick.com/tutorial-demos/input-text-styles/input-text-styles-source.zip"></a>
-      <a class="icon fa fa-folder-open" data-title="Tutorial Archives" href="http://www.callmenick.com/category/tutorials/"></a>
+
     </div>
   </div><!-- /.info-bar -->
 
@@ -73,10 +72,10 @@
         <form name="form1" method="post" action="" class="input-list style-1 clearfix">
         <ul >
           <li>
-            <input name="mail_account" type="text" id="mail_account" placeholder=": E-Mail">
+            <input name="mail_account" type="text" id="mail_account" placeholder=": E-Mail" width="300">
           </li>
           <li>
-            <input name="phone_account" type="text" id="phone_account" placeholder=":Mobile-Phone" class="focus">
+            <input name="phone_account" type="text" id="phone_account" placeholder=":Mobile-Phone" class="focus" width="300">
           </li>
         </ul>
 				<input type="submit" name="Submit" class="btn btn-danger" value="搜尋" >
