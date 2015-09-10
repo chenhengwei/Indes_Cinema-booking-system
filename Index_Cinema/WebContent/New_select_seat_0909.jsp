@@ -279,7 +279,7 @@
                 </div>
                <div id="Customer_info">
         <!-- ========================================================================================================== -->
-                <form id="selected-opt" name="selected-opt" action="Order_Comfirm_New.jsp" method="post" onSubmit="return check_data_C();">
+                <form id="selected-opt" name="selected-opt" action="Order_Comfirm_auto_mail.jsp" method="post" onSubmit="return check_data_C();">
 				<div class="ordering-details" float:right>
 				<div>
 				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="https://upload.wikimedia.org/wikipedia/zh/3/3d/Minions_poster.jpg"id="img_Movie" width="227.5px" height="320px" /></p>
@@ -345,7 +345,7 @@
 					            
 			<script type="text/javascript">
 			
-			    SC_pp = null;
+			    SC_pp= null;
 			    var arr = [<%=sold_seats%>];
                 var price = 300; //price
                 var arr1 = ['1-1','1_2', '4_4', '4_5', '6_6', '6_7', '8_5', '8_6', '8_7', '8_8','10_1','10_2','10_3',];
@@ -398,6 +398,7 @@
                                 $counter.text(sc.find('selected').length + 1);
                                 SC_pp=sc.find('selected').length + 1;
                                 document.getElementById("ordered_pp").value = sc.find('selected').length + 1;//人數
+                                SC_pp_check  = document.getElementById("ordered_pp").value;
                               //alert(this.settings.row);
                                 
                                 $total.text(recalculateTotal(sc) + price);
@@ -438,6 +439,7 @@
                                 document.getElementById("ordered_pp").value = sc.find('selected').length - 1;//人數
                                 //alert(sc.find('selected').length);
                                 //update totalnum
+                                SC_pp_check  = document.getElementById("ordered_pp").value;
                                 $total.text(recalculateTotal(sc) - price);
                                 document.getElementById("Money").value = recalculateTotal(sc) - price; //價錢
                                 //alert(recalculateTotal(sc) - price);
@@ -486,15 +488,15 @@
                 	 //alert("000");
 
                    // ---------- Check ----------
-                   if(SC_pp == "" || SC_pp == null){
+                   if(SC_pp == "" || SC_pp == null || SC_pp_check == 0){
                 	 message = message + '請選位\n';
                   	 flag = false;
                   	 //alert("請選位");
                    }else{
                 	   
-                    if(<%=request.getParameter("ticketQuantity")%> != SC_pp ){
+                    if(<%=request.getParameter("ticketQuantity")%> != SC_pp_check  ){
                         message = message + '訂位人數不符合\n';
-                        window.location.reload(); 
+                        //window.location.reload(); 
                         flag = false;}
                     //alert("訂位人數不符合");
  				
