@@ -29,7 +29,7 @@
   
   <div class="info-bar">
     <div class="container">
-      <a class="icon fa fa-home" data-title="Back To Tutorial" href="index.jsp"></a>
+      <a class="icon fa fa-home" data-title="" href="index.jsp"></a>
 
       <!-- <a class="icon fa fa-arrow-right" data-title="Next Demo" href=""></a> -->
 
@@ -40,17 +40,18 @@
 	<!-- /.branding -->
     <div class="branding">
       <div class="container clearfix">
-      <h1> 訂單查詢 </h1>
+      <h1> 訂單查詢 </h1>  
         <div class="logo">
           <a href=""><img alt="" onerror="" src=""></a>
         </div>
+        
 
         <div class="social">
-          <a class="fb" href="https://www.facebook.com/callmenick1" target="_blank">facebook</a>
-          <a class="twitter" href="https://twitter.com/nicksalloum_" target="_blank">twitter</a>
-          <a class="googleplus" href="https://plus.google.com/115555859876227750152/" target="_blank">google plus</a>
-          <a class="rss" href="http://feeds.feedburner.com/callmenick_" target="_blank">rss</a>
-          <a class="email" href="http://www.callmenick.com/subscribe/">email</a>
+          <a class="fb" href="#" target="_blank">facebook</a>
+          <a class="twitter" href="#"target="_blank">twitter</a>
+          <a class="googleplus" href="#" target="_blank">google plus</a>
+          <a class="rss" href="#" target="_blank">rss</a>
+          <a class="email" href="#">email</a>
         </div>
       </div>
     </div>
@@ -58,7 +59,7 @@
 
     <div class="site-title">
       <div class="container">
-        <h1> 訂單查詢 </h1>
+        <h1> 訂單查詢 </h1> 
       </div>
     </div><!-- /.site-title -->
 
@@ -188,7 +189,7 @@
           </ul>
         </aside>
         <aside class="logo">
-          <a href=""><img alt="" onerror="" src=""></a>
+          <a href=""><img alt="" onerror="" src="images/killler.png" width="100px" height="100px" /> </a>
         </aside>
 
       

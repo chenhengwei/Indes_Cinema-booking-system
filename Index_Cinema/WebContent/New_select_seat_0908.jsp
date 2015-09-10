@@ -80,14 +80,15 @@
  
  <!--  -->
  <div id="main">
-    <div class="container_slider">
-    <div id="slides">
-      <img src="images/e1.jpg" />
-      <img src="images/e2.jpg" />
-      <img src="images/e3.jpg" /> 
-      <img src="images/e4.jpg" />
-    </div>
-  </div>
+ 
+	    <div class="container_slider">
+		    <div id="slides">
+		      <img src="images/e1.jpg" />
+		      <img src="images/e2.jpg" />
+		      <img src="images/e3.jpg" /> 
+		      <img src="images/e4.jpg" />
+		    </div>
+		  </div>
 
   <script src="js/jquery.slides.min.js"></script>
 
@@ -614,7 +615,7 @@
             </script>
         </div>
        </div> 
-        <!--footer-->
+   </div>      <!--footer-->
         <div class="footer">
  <!-- <h1 class="theme-name"><strong>Goocode.net</strong><span>© 2013 - 2015 GOOCODE</span></h1> -->
       <!--  -->

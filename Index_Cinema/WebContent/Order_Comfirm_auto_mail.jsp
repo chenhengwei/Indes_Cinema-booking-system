@@ -135,11 +135,11 @@
         </div>
 
         <div class="social">
-          <a class="fb" href="https://www.facebook.com/callmenick1" target="_blank">facebook</a>
-          <a class="twitter" href="https://twitter.com/nicksalloum_" target="_blank">twitter</a>
-          <a class="googleplus" href="https://plus.google.com/115555859876227750152/" target="_blank">google plus</a>
-          <a class="rss" href="http://feeds.feedburner.com/callmenick_" target="_blank">rss</a>
-          <a class="email" href="http://www.callmenick.com/subscribe/">email</a>
+          <a class="fb" href="" target="_blank">facebook</a>
+          <a class="twitter" href="" target="_blank">twitter</a>
+          <a class="googleplus" href="" target="_blank">google plus</a>
+          <a class="rss" href="" target="_blank">rss</a>
+          <a class="email" href="">email</a>
         </div>
       </div>
     </div>
@@ -270,10 +270,10 @@
         <aside>
         <span class="clearfix">電影</span>
           <ul>
-                        <li><a href="http://www.ezding.com.tw/welcome.do">最新預告</a></li>
+                        <li><a href="#">最新預告</a></li>
                         <li><a href="#">評價評論</a></li>
-                        <li><a href="http://www.ezding.com.tw/welcome.do">即將上映電影</a></li>
-                        <li><a href="http://www.ezding.com.tw/welcome.do">訂票Top10</a></li>
+                        <li><a href="#">即將上映電影</a></li>
+                        <li><a href="#">訂票Top10</a></li>
           </ul>
         </aside>
 
@@ -291,7 +291,7 @@
           </ul>
         </aside>
         <aside class="logo">
-          <a href=""><img alt="" onerror="" src=""></a>
+          <a href=""><img alt="" onerror="" src="images/killler.png" width="100px" height="100px" /> </a>
         </aside>
 
       
@@ -302,7 +302,7 @@
     </div>
   </footer><!-- /footer -->
   
-</div><!-- /#wrapper -->
+<!-- /#wrapper -->
 <%
 	// 可將參數傳到 defaulTo 或 to ; 看情況調用本 sendmail
 		// 注意, 尚未加上 try catch ; 小心傳入 InternetMail address & Mail Server 無法連通知處理

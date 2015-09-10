@@ -53,8 +53,8 @@
 </div>
 
   <header>
-   <!--
-	 /.branding 
+   
+	 <!--  /.branding 
     <div class="branding">
       <div class="container clearfix">
       <h1>  </h1>
@@ -72,15 +72,14 @@
       </div>
     </div>
 
-    /.branding 
+      /.branding 
 
     <div class="site-title">
       <div class="container">
         <h1>  </h1>
       </div>
-    </div><!-- /.site-title 
-
-  -->
+    </div><!-- /.site-title
+     -->
   </header>
  
  
@@ -98,38 +97,50 @@
   <script src="js/jquery.slides.min.js"></script>
 
   <script>
+			  $(function() {
+			      $('#slides').slidesjs({
+			        width: 940,
+			        height: 350,
+			        play: {
+			          active: true,
+			          auto: true,
+			          interval: 4000,
+			          swap: true
+			        }
+			      });
+			    });
   
-//   $(function() {
-// 	    $( "#dialog" ).dialog({
-// 	        width: 730,
-// 	        height: 550,
-	        
-// 	         });
-// 	  });
- //=========================== 
-  $(function() {
-
-	  $("#dialog").dialog({
-	      title: ' 訂票與取票注意事項：',
-	      bgiframe: true,
-	      width: 730,
-	      height: 600,
-	      modal: true,
-	      draggable: true,
-	      resizable: false,
-	      overlay:{opacity: 0.7, background: "#FF8899" },
-
-	      buttons: {
-	          '同意以上規範資訊': function() {
-	              $(this).dialog('close');
-	          }
-	      }
-	  });
-  
-	  });
-  
-//===========================
-  
+				//   $(function() {
+				// 	    $( "#dialog" ).dialog({
+				// 	        width: 730,
+				// 	        height: 550,
+					        
+				// 	         });
+				// 	  });
+				 //=========================== 
+				  $(function() {
+				
+					  $("#dialog").dialog({
+					      title: ' 訂票與取票注意事項：',
+					      bgiframe: true,
+					      width: 730,
+					      height: 600,
+					      modal: true,
+					      draggable: true,
+					      resizable: false,
+					      overlay:{opacity: 0.7, background: "#FF8899" },
+				
+					      buttons: {
+					          '同意以上規範資訊': function() {
+					              $(this).dialog('close');
+					          }
+					      }
+					  });
+				  
+					  });
+				  
+				//===========================
+				  
   
   
   
@@ -714,7 +725,7 @@
           </ul>
         </aside>
         <aside class="logo">
-          <a href=""><img alt="" onerror="" src=""></a>
+         <a href=""><img alt="" onerror="" src="images/killler.png" width="100px" height="100px" /> </a>
         </aside>
 		                <!-- ///////////////////////////////////////////////////////////////// -->
                 <div id="dialog">

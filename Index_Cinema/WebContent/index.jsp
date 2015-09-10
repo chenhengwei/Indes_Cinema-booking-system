@@ -696,7 +696,7 @@
                 <div class="member">
                     <!--登入-->
                     <span class="name">
-                        <a href="https://www.ezding.com.tw/enduser.do?ezfrom=homestay">登入</a>&nbsp;&nbsp;
+                        <a href="Email_Phone_Query.jsp">登入</a>&nbsp;&nbsp;
                     </span>
                     <a href="#" class="member-menu"><i class="fa fa-bars"></i></a>
                     <!--語言-->
@@ -721,7 +721,7 @@
                 </div>
                 <!--連結-->
                 <div class="submenu">
-                    <a href="http://www.ezding.com.tw/cc.do?action=online&amp;ezfrom=homestay" class="service">客服中心</a>
+                    <a href="" class="service">客服中心</a>
                     <a href="Email_Phone_Query.jsp" class="order-history">訂購記錄</a>
                 </div>
             </div>
@@ -991,8 +991,8 @@
             <div class="app">
                 <div class="app-w">
                     <span class="join-txt">加入我們</span>
-                    <a href="https://www.facebook.com/sofunezding" class="join-icon" style="background-image:url(images/join_fb.png)">臉書</a>
-                    <a href="http://weibo.com/ezding" class="join-icon" style="background-image:url(images/join_wei.png)">微博</a>
+                    <a href="https://www.facebook.com/wesleyplace" class="join-icon" style="background-image:url(images/join_fb.png)">臉書</a>
+                    <a href="#" class="join-icon" style="background-image:url(images/join_wei.png)">微博</a>
                     <a href="#" class="app-icon" style="background-image: url(images/app_google.png);">play APP</a>
                     <a href="#" class="app-icon" style="background-image:url(images/app_ios.png)">iOS APP</a>
                 </div>
@@ -1006,12 +1006,17 @@
                 <div class="Unit01 Unit-padd">
                     <span class="Unit-title">電影</span>
                     <ul class="row2 row-txt">
-                        <li><a href="http://www.ezding.com.tw/welcome.do">最新預告</a></li>
+                        <li><a href="#">最新預告</a></li>
                         <li><a href="#">評價評論</a></li>
-                        <li><a href="http://www.ezding.com.tw/welcome.do">即將上映電影</a></li>
-                        <li><a href="http://www.ezding.com.tw/welcome.do">訂票Top10</a></li>
+                        <li><a href="#">即將上映電影</a></li>
+                        <li><a href="#">訂票Top10</a></li>
                     </ul>
-                    <span class="row-title padd-top">&gt;各區影城訂票</span>
+                   
+                </div>
+
+                <div class="Unit01 Unit-padd">
+                 
+                <span class="Unit-title">各區影城訂票</span>
                     <ul class="row2 row-txt">
                         <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=aa328194963a11e092b89646992d17ea">in89豪華</a></li>
                         <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=46efa950eafa11e38b12000bdb90dba4">樂聲</a></li>
@@ -1021,9 +1026,6 @@
                         <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=40288eb0050f542401050f5566201ba4">華威</a></li>
                         <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=2c28121ae2c711e292f7000bdb90dba4">屏東中影</a></li>
                     </ul>
-                </div>
-
-                <div class="Unit01 Unit-padd">
 
                 </div>
 
