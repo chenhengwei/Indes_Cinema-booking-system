@@ -279,7 +279,7 @@
                 </div>
                <div id="Customer_info">
         <!-- ========================================================================================================== -->
-                <form id="selected-opt" name="selected-opt" action="Order_Comfirm_auto_mail.jsp" method="post" onSubmit="return check_data_C();">
+                <form id="selected-opt" name="selected-opt" action="Order_Comfirm_New.jsp" method="post" onSubmit="return check_data_C();">
 				<div class="ordering-details" float:right>
 				<div>
 				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="https://upload.wikimedia.org/wikipedia/zh/3/3d/Minions_poster.jpg"id="img_Movie" width="227.5px" height="320px" /></p>
@@ -287,7 +287,7 @@
 				</div>
 				<p><strong>請輸入您的相關訂票資訊:</strong></p>		
 				<p> <strong>Email信箱:</strong>
-								<input id="t1" type="text" name="seat" onblur="getData();" />
+								<input id="t1" type="text" name="seat" onblur="getData();" /> <!-- checkEmail(); -->
 								</p>
 							
 							    <input type="hidden" id="dup" value="1" />
@@ -311,8 +311,8 @@
 				<p>
 				
 				<%for(int k=0;k<95;k++){out.print("&nbsp");} %>
-				<input type="button" name="back" value="回選單" class="btn btn-danger" align="float:right"/> 
-				&nbsp&nbsp&nbsp&nbsp<input type="submit" name="submit" value="下訂單" class="btn btn-danger" /><a href="index.html">
+				<a href="index.jsp"><input type="button" name="back" value="回選單" class="btn btn-danger" align="float:right"/> </a>
+				&nbsp&nbsp&nbsp&nbsp<input type="submit" name="submit" value="下訂單" class="btn btn-danger" />
 				</p>
 				
 				</form>
@@ -345,7 +345,7 @@
 					            
 			<script type="text/javascript">
 			
-	
+			    SC_pp = null;
 			    var arr = [<%=sold_seats%>];
                 var price = 300; //price
                 var arr1 = ['1-1','1_2', '4_4', '4_5', '6_6', '6_7', '8_5', '8_6', '8_7', '8_8','10_1','10_2','10_3',];
@@ -384,6 +384,7 @@
                             ]
                         },
                         click: function () { //Click event
+                        	
                             if (this.status() == 'available' && Order_PP > sc.find('selected').length) { //optional seat
                                 $('<li>R' + (this.settings.row + 1) + ' S' + this.settings.label + '</li>')
                                         .attr('id', 'cart-item-' + this.settings.id)
@@ -475,40 +476,63 @@
                 }
                 
                 //=====================================================================//  
-                function check_data_C()
-                {
                 
-                   var flag = true;
-                   var message = '' ;
+                var t1 = document.getElementById('t1');
+                var t2 = document.getElementById('t2');
+
+                function check_data_C(){
+                    var flag = true;
+                    var message = '' ;
+                	 //alert("000");
+
                    // ---------- Check ----------
-                   if(SC_pp == null || SC_pp ==''){
-                	 message = message + '訂位人數不符合\n';
+                   if(SC_pp == "" || SC_pp == null){
+                	 message = message + '請選位\n';
                   	 flag = false;
+                  	 //alert("請選位");
                    }else{
                 	   
-                    if('<%=request.getParameter("ticketQuantity")%>' != SC_pp ){
+                    if(<%=request.getParameter("ticketQuantity")%> != SC_pp ){
                         message = message + '訂位人數不符合\n';
+                        window.location.reload(); 
                         flag = false;}
+                    //alert("訂位人數不符合");
  				
  				  // ---------- Check ----------
                     if( check_Seat_available.trim()== 'Y'){
                             message = message + num+': 座位 已被預約",請重新選購\n';
                             flag = false;
-                            window.location.reload();      
+                            window.location.reload();    
                     }
- 				}
+ 				   }
+					
 
                    // ---------- Check ----------
-                   var t1 = document.getElementById('t1');
-                   if(t1.value==''){
+                                   
+                  if(t1.value==''){
                       message = message + 'Email不能為空白\n';
                       flag = false;
+                      //alert("Email空白");
+                    }else{
+                    	Email = document.getElementById('t1').value;
+                  if (Email.search(/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/)!=-1 ) {
+ 					  //emailMsg.innerHTML = "";
+ 					  //emailFlag = true;
+                	  message = message + '';
+ 					} else {
+ 						message = message + 'Email 電子信箱格式有誤\n';
+ 					  //emailMsg.innerHTML = "<font color='red'>電子信箱格式有誤, 請重新輸入!</font>";
+ 						//alert("電子信箱格式有誤, 請重新輸入!");
+ 						flag = false;
+ 					}
                    }
+
                    // ---------- Check ----------
-                   var t2 = document.getElementById('t2');
-                   if(t2.value==''){
+                   
+                   if(t2.value ==''){
                       message = message + '電話不能為空白\n';
                       flag = false;
+                      //alert("電話");
                    }
                    // ---------- Check ----------
 
@@ -527,7 +551,20 @@
                 }
                 
                 //========================================================================================//
-                
+                Email;
+				function checkEmail() {
+					//alert("check mail");
+					Email = document.getElementById('t1').value;
+					if (Email.search(/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/)!=-1) {
+					  //emailMsg.innerHTML = "";
+					  //emailFlag = true;
+						message = "";
+					} else {
+						message = message + 'Email 電子信箱格式有誤\n'
+					  //emailMsg.innerHTML = "<font color='red'>電子信箱格式有誤, 請重新輸入!</font>";
+						alert("電子信箱格式有誤, 請重新輸入!");
+					}
+				}
                 
                 
             var request;
