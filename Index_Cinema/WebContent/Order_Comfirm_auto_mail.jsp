@@ -228,12 +228,12 @@
 				      </tr>
 				      <tr>
 				        <th scope="row">播映時間:</th>
-				        <td><%out.print(Show_date); %></td>
+				        <td><%out.print(s1[3]); %></td>
 				
 				      </tr>
 				      <tr>
 				        <th scope="row">訂購日期</th>
-				        <td><%out.println(s1[3]); %></td>
+				        <td><%out.println(Show_date); %></td>
 
 				      </tr>
 				      <tr>
@@ -377,12 +377,12 @@
 								        
 							        + "<tr>"
 								        + "<th scope='row'>播映時間:</th>"
-								        + "<td>"+Show_date+"</td>"
+								        + "<td>"+s1[3]+"</td>"
 							     	+ "</tr>"
 								        
 							     	+ "<tr>"
 								        + "<th scope='row'>訂購日期</th>"
-								        + "<td>"+s1[3]+"</td>"
+								        + "<td>"+Show_date+"</td>"
 							    	+ "</tr>"
 							        
 							     	+ "<tr>"
