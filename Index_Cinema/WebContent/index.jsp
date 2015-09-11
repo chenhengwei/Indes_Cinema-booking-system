@@ -990,9 +990,11 @@
             <!--加入我們 FB標籤頁面-->
             <div class="app">
                 <div class="app-w">
-                    <span class="join-txt">加入我們</span>
+                    <span class="join-txt">與我聯繫</span>
                     <a href="https://www.facebook.com/wesleyplace" class="join-icon" style="background-image:url(images/join_fb.png)">臉書</a>
-                    <a href="#" class="join-icon" style="background-image:url(images/join_wei.png)">微博</a>
+                    <a href="https://www.facebook.com/amy.chung.3591" class="join-icon" style="background-image:url(images/join_fb.png)">臉書</a>
+                    <a href="https://www.facebook.com/charles.chan.127" class="join-icon" style="background-image:url(images/join_fb.png)">臉書</a>
+                    <!--  <a href="#" class="join-icon" style="background-image:url(images/join_wei.png)">微博</a> -->
                     <a href="#" class="app-icon" style="background-image: url(images/app_google.png);">play APP</a>
                     <a href="#" class="app-icon" style="background-image:url(images/app_ios.png)">iOS APP</a>
                 </div>
