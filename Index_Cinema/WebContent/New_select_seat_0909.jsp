@@ -704,23 +704,23 @@
         <aside>
         <span class="clearfix"><strong>電影</strong></span>
           <ul>
-                        <li><a href="http://www.ezding.com.tw/welcome.do">最新預告</a></li>
+                        <li><a href="">最新預告</a></li>
                         <li><a href="#">評價評論</a></li>
-                        <li><a href="http://www.ezding.com.tw/welcome.do">即將上映電影</a></li>
-                        <li><a href="http://www.ezding.com.tw/welcome.do">訂票Top10</a></li>
+                        <li><a href="">即將上映電影</a></li>
+                        <li><a href="">訂票Top10</a></li>
           </ul>
         </aside>
 
         <aside>
         <span style="color:white"><strong>各區影城訂票</strong></span>
           <ul>
-                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=aa328194963a11e092b89646992d17ea">in89豪華</a></li>
-                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=46efa950eafa11e38b12000bdb90dba4">樂聲</a></li>
-                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=79dd632cce7511e2ad6600215edc3df8">新民生</a></li>
-                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=40288eb0050f542401050f554e7e0674">威秀</a></li>
-                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=40288eb0050f542401050f55676b1bbc">美麗華大直</a></li>
-                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=40288eb0050f542401050f5566201ba4">華威</a></li>
-                        <li><a href="http://www.ezding.com.tw/mb.do?cinemaId=2c28121ae2c711e292f7000bdb90dba4">屏東中影</a></li>
+                        <li><a href="">in89豪華</a></li>
+                        <li><a href="">樂聲</a></li>
+                        <li><a href="">新民生</a></li>
+                        <li><a href="">威秀</a></li>
+                        <li><a href="">美麗華大直</a></li>
+                        <li><a href="">華威</a></li>
+                        <li><a href="">屏東中影</a></li>
                    
           </ul>
         </aside>
